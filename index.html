@@ -9,6 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
     <style>
         body {
             font-family: 'Inter', sans-serif;
@@ -17,8 +18,8 @@
         /* Hero */
         .hero-section {
             position: relative;
-           min-height: 625px;
-            background-image: url('media/IMG_9709.JPG.jpeg');
+            min-height: 625px;
+            background-image: url('media/42193704_sl_101721_46230_16.jpg');
             background-size: cover;
             background-position: center;
             display: flex;
@@ -72,12 +73,6 @@
         .card-hover:hover {
             transform: translateY(-6px);
             box-shadow: 0 20px 40px rgba(0, 0, 0, .13);
-        }
-
-        /* purple gradient on hover */
-        .group:hover {
-            background: linear-gradient(135deg, #6d28d9, #7c3aed);
-            transform: translateY(-6px);
         }
 
         /* Recruiter slider */
@@ -166,12 +161,12 @@
         }
 
         .nav-link:hover {
-            color: #7c3aed;
+            color: #3f1a1a;
         }
 
         /* section headings crimson */
         .heading-crimson {
-            color: #b91c1c;
+            color: #690404;
         }
 
         /* Download brochure CTA bar */
@@ -203,7 +198,7 @@
         /* Apply now CTA section */
         .apply-cta-section {
             position: relative;
-            min-height: 260px;
+            min-height: 400px;
             background-image: url('media/2151416254.jpg');
             background-size: cover;
             background-position: center;
@@ -215,18 +210,19 @@
         .apply-cta-overlay {
             position: absolute;
             inset: 0;
-            background: rgba(15, 23, 60, 0.72);
+            background: rgba(0, 0, 0, 0.494);
         }
 
         .apply-cta-btn {
-            background: #0ea5e9;
+            background: #690404;
+            border: 2px solid white;
             color: #fff;
             font-weight: 700;
             font-size: 16px;
             padding: 14px 40px;
             border-radius: 999px;
             cursor: pointer;
-            border: none;
+        
             margin-top: 24px;
         }
 
@@ -242,9 +238,26 @@
             height: 100%;
         }
 
-        .course-card:hover {
-            background: #eaf8ff;
 
+        /* Lift + depth */
+        .course-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+        }
+
+        /* Subtle gradient glow */
+        .course-card::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(156, 0, 0, 0.08), transparent 60%);
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            border-radius: 15px;
+        }
+
+        .course-card:hover::before {
+            opacity: 1;
         }
 
         .course-card-inner {
@@ -287,46 +300,6 @@
             line-height: 1.5;
         }
 
-        .course-footer {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            border-top: 2px solid;
-            padding-top: 14px;
-            margin-top: auto;
-        }
-
-        .course-footer.btech {
-            border-color: #f59e0b;
-        }
-
-        .course-footer.bca {
-            border-color: #22c55e;
-        }
-
-        .course-footer.bba {
-            border-color: #3b82f6;
-        }
-
-        .course-footer.bcom {
-            border-color: #f97316;
-        }
-
-        .course-footer.bsc {
-            border-color: #a855f7;
-        }
-
-        .course-footer.mba {
-            border-color: #ec4899;
-        }
-
-        .course-footer.mca {
-            border-color: #14b8a6;
-        }
-
-        .course-footer.msc {
-            border-color: #6366f1;
-        }
 
         .duration-badge {
             display: flex;
@@ -437,7 +410,7 @@
         <div class="relative z-10 max-w-7xl mx-auto px-6 w-full flex flex-col lg:flex-row items-center gap-12 py-6">
             <!-- Left text -->
             <div class="flex-1 text-white text-center lg:text-left">
-                <h1 class="text-3xl md:text-5xl font-bold leading-snug mb-3">S-VYASA Deemed-to-be University</h1>
+                <h1 class="text-3xl md:text-6xl font-bold leading-snug mb-3">S-VYASA Deemed-to-be University</h1>
                 <p class="text-lg md:text-xl font-light mb-1">Guiding Excellence in Mind, Body, &amp; Spirit through a
                     New Venture in</p>
                 <p class="text-2xl md:text-3xl font-bold mb-5" style="color:#f59e0b;">Trivandrum, Kerala</p>
@@ -458,20 +431,21 @@
 
                     <input type="text" placeholder="Name" class="w-full px-4 py-3 bg-white/80 border border-white/20 rounded-lg text-sm text-black placeholder-black/70
              focus:outline-none focus:ring-2 focus:ring-white/40 transition" />
+                    <input type="email" placeholder="Your Email" class="w-full px-4 py-3 bg-white/80 border border-white/20 rounded-lg text-sm text-black placeholder-black/70
+             focus:outline-none focus:ring-2 focus:ring-white/40 transition" />
 
                     <input type="tel" placeholder="Contact No." class="w-full px-4 py-3 bg-white/80 border border-white/20 rounded-lg text-sm text-black placeholder-black/70
              focus:outline-none focus:ring-2 focus:ring-white/40 transition" />
 
-                    <input type="email" placeholder="Your Email" class="w-full px-4 py-3 bg-white/80 border border-white/20 rounded-lg text-sm text-black placeholder-black/70
-             focus:outline-none focus:ring-2 focus:ring-white/40 transition" />
+                    <div class="flex gap-4">
+                        <input type="text" placeholder="Courses" class="w-1/2 px-4 py-3 bg-white/80 border border-white/20 rounded-lg text-sm text-black placeholder-black/70
+        focus:outline-none focus:ring-2 focus:ring-white/40 transition" />
 
-                    <input type="text" placeholder="State" class="w-full px-4 py-3 bg-white/80 border border-white/20 rounded-lg text-sm text-black placeholder-black/70
-             focus:outline-none focus:ring-2 focus:ring-white/40 transition" />
+                        <input type="text" placeholder="Specialization" class="w-1/2 px-4 py-3 bg-white/80 border border-white/20 rounded-lg text-sm text-black placeholder-black/70
+        focus:outline-none focus:ring-2 focus:ring-white/40 transition" />
+                    </div>
 
-                    <input type="text" placeholder="Course of Interest" class="w-full px-4 py-3 bg-white/80 border border-white/20 rounded-lg text-sm text-black placeholder-black/70
-             focus:outline-none focus:ring-2 focus:ring-white/40 transition" />
-
-                    <input type="text" placeholder="Select Specialization" class="w-full px-4 py-3 bg-white/80 border border-white/20 rounded-lg text-sm text-black placeholder-black/70
+                    <input type="text" placeholder="Message (Optional)" class="w-full px-4 py-3 bg-white/80 border border-white/20 rounded-lg text-sm text-black placeholder-black/70
              focus:outline-none focus:ring-2 focus:ring-white/40 transition" />
 
                 </div>
@@ -532,280 +506,773 @@
         </div>
     </section>
 
-    <!-- ===== COURSES ===== -->
-    <section id="courses" class="py-16 bg-gray-50">
-        <div class="max-w-9xl mx-auto px-6">
-            <h2 class="text-3xl md:text-4xl font-bold text-center heading-crimson mb-3">S-VYASA University, Trivandrum,
-                Courses</h2>
-            <p class="text-center text-black-900 text-base max-w-7xl mx-auto mb-10 text-lg">S-VYASA Deemed-to-be
-                University,
-                Thiruvananthapuram, stands out as one of India's top universities because of its holistic approach to
-                student development. Its courses are crafted to foster academic growth among the youth, encouraging them
-                to transcend limits and embrace both innovation and tradition.</p>
 
-            <h3 class="text-3xl text-center font-bold heading-crimson mb-7">S-VYASA University UG Courses</h3>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12 items-stretch">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['DM Sans', 'system-ui', 'sans-serif'],
+                        mono: ['DM Mono', 'monospace'],
+                    },
+                    colors: {
+                        stone: {
+                            50: '#fafaf9',
+                            100: '#f5f5f4',
+                            150: '#eeede9',
+                            200: '#e7e5e4',
+                            300: '#d6d3d1',
+                            400: '#a8a29e',
+                            500: '#78716c',
+                            600: '#57534e',
+                            700: '#44403c',
+                            800: '#292524',
+                            900: '#1c1917',
+                        },
+                        amber: {
+                            400: '#fbbf24',
+                            500: '#f59e0b',
+                        }
+                    },
+                    keyframes: {
+                        fadeUp: {
+                            '0%': { opacity: '0', transform: 'translateY(22px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        },
+                    },
+                    animation: {
+                        'fade-up': 'fadeUp 0.7s cubic-bezier(0.22,0.61,0.36,1) both',
+                        'fade-up-1': 'fadeUp 0.7s 0.08s cubic-bezier(0.22,0.61,0.36,1) both',
+                        'fade-up-2': 'fadeUp 0.7s 0.16s cubic-bezier(0.22,0.61,0.36,1) both',
+                        'fade-up-3': 'fadeUp 0.7s 0.24s cubic-bezier(0.22,0.61,0.36,1) both',
+                        'fade-up-4': 'fadeUp 0.7s 0.32s cubic-bezier(0.22,0.61,0.36,1) both',
+                        'fade-in': 'fadeIn 0.6s ease both',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Card hover lift */
+        .course-card {
+            transition: transform 0.4s cubic-bezier(0.22, 0.61, 0.36, 1),
+                box-shadow 0.4s cubic-bezier(0.22, 0.61, 0.36, 1),
+                border-color 0.3s ease;
+        }
+
+        .course-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 48px -12px rgba(0, 0, 0, 0.1), 0 4px 16px -4px rgba(0, 0, 0, 0.06);
+            border-color: #d6d3d1;
+        }
+
+        /* Apply button shimmer */
+        .apply-btn {
+            position: relative;
+            overflow: hidden;
+            transition: background 0.25s, transform 0.2s, box-shadow 0.25s;
+        }
+
+        .apply-btn::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 60%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.35), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .apply-btn:hover::after {
+            left: 150%;
+        }
+
+        .apply-btn:hover {
+            transform: scale(1.04);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.14);
+        }
+
+        /* Icon box */
+        .icon-box {
+            transition: transform 0.4s cubic-bezier(0.22, 0.61, 0.36, 1);
+        }
+
+        .course-card:hover .icon-box {
+            transform: rotate(-4deg) scale(1.08);
+        }
+
+        /* Spec dots */
+        .spec-dot {
+            transition: background 0.3s, transform 0.3s;
+        }
+
+        .course-card:hover .spec-dot {
+            background: #78716c;
+            transform: scale(1.4);
+        }
+
+        /* Section ruler */
+        .section-rule {
+            background: linear-gradient(to right, #e7e5e4 0%, transparent 80%);
+        }
+
+        /* Partner logos */
+        .partner-item {
+            transition: opacity 0.3s, transform 0.3s;
+            opacity: 0.35;
+            filter: grayscale(1);
+        }
+
+        .partner-item:hover {
+            opacity: 0.7;
+            transform: scale(1.05);
+            filter: grayscale(0);
+        }
+
+        /* Scroll reveal */
+        .reveal {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity 0.65s cubic-bezier(0.22, 0.61, 0.36, 1), transform 0.65s cubic-bezier(0.22, 0.61, 0.36, 1);
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+
+
+    <style>
+        :root {
+            --crimson: #690404;
+            --crimson-dk: #4d0303;
+            --cream: #fdf8f3;
+            --sand: #f5ede0;
+            --border: #e8ddd0;
+            --text: #1a1208;
+            --muted: #7a6a58;
+
+        }
+
+
+        /* ── SECTION WRAPPER ── */
+        .courses-section {
+            background: linear-gradient(170deg, #ffffff 0%, #fdf8f3 40%, #c8d8e8 100%);
+            border-radius: 40px;
+            padding: 56px 0 64px;
+        }
+
+        /* ── HEADING ── */
+        .section-heading {
+
+            font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+            font-weight: 700;
+            color: var(--crimson);
+            letter-spacing: -0.01em;
+        }
+
+        /* ── SUB LABEL ── */
+        .sub-label {
+
+            font-size: 11px;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: var(--muted);
+        }
+
+        .label-rule {
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(to right, var(--border), transparent);
+        }
+
+        /* ── CARD ── */
+        .course-card {
+            background: #ffffff;
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            user-select: text;
+            /* text is selectable */
+            cursor: default;
+            transition: transform 0.35s cubic-bezier(0.22, 0.61, 0.36, 1),
+                box-shadow 0.35s cubic-bezier(0.22, 0.61, 0.36, 1),
+                border-color 0.25s ease;
+        }
+
+        .course-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 18px 48px -12px rgba(105, 4, 4, 0.1), 0 4px 14px -4px rgba(0, 0, 0, 0.07);
+            border-color: #d4b8a0;
+        }
+
+        /* ── ICON BOX ── */
+        .icon-box {
+            width: 72px;
+            height: 72px;
+            border-radius: 16px;
+            background: #fff7f0;
+            border: 1px solid #f0dece;
+            overflow: hidden;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.35s cubic-bezier(0.22, 0.61, 0.36, 1);
+        }
+
+        .course-card:hover .icon-box {
+            transform: rotate(-3deg) scale(1.06);
+        }
+
+        .icon-box img {
+            width: 72px;
+            height: 72px;
+            object-fit: contain;
+        }
+
+        /* ── BADGE ── */
+        .course-badge {
+
+            font-size: 10px;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--crimson);
+            background: #fdf0ee;
+            border: 1px solid #f5ccc8;
+            padding: 3px 11px;
+            border-radius: 100px;
+            display: inline-block;
+        }
+
+        /* ── TITLE ── */
+        .card-title-text {
+
+            font-size: 22px;
+            font-weight: 700;
+            color: #002453;
+            line-height: 1.3;
+            margin-top: 8px;
+            user-select: text;
+        }
+
+        /* ── SPEC LIST ── */
+        .spec-list {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 20px 0;
+        }
+
+        .spec-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            font-size: 16px;
+            color: #201911;
+            padding: 4px 0;
+            user-select: text;
+            line-height: 1.45;
+        }
+
+        .spec-dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: var(--crimson);
+            flex-shrink: 0;
+            margin-top: 6px;
+            opacity: 0.5;
+            transition: opacity 0.3s;
+        }
+
+        .course-card:hover .spec-dot {
+            opacity: 1;
+        }
+
+        /* ── FOOTER ── */
+        .card-footer-row {
+            margin-top: auto;
+            padding-top: 16px;
+            border-top: 1px solid #f0e8df;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .duration-label {
+            font-family: var(--mono);
+            font-size: 12px;
+            color: var(--muted);
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        /* ── APPLY BUTTON ── */
+        .apply-btn {
+
+            font-size: 12.5px;
+            font-weight: 600;
+            color: #fff;
+            background: var(--crimson);
+            border: none;
+            border-radius: 100px;
+            padding: 8px 22px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            position: relative;
+            overflow: hidden;
+            transition: background 0.25s, transform 0.2s, box-shadow 0.25s;
+            z-index: 1;
+        }
+
+        .apply-btn::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(120deg, transparent 30%, rgba(255, 255, 255, 0.18) 50%, transparent 70%);
+            transform: translateX(-100%);
+            transition: transform 0.5s ease;
+            z-index: -1;
+        }
+
+        .apply-btn:hover {
+            background: var(--crimson-dk);
+            transform: scale(1.05);
+            box-shadow: 0 8px 24px rgba(105, 4, 4, 0.28);
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .apply-btn:hover::after {
+            transform: translateX(100%);
+        }
+
+        .apply-btn:active {
+            transform: scale(0.97);
+        }
+
+        /* ── DARK CARD (B.Sc CS wide) ── */
+        .card-dark {
+            background: #1c0f0f;
+            border-color: #2e1a1a;
+        }
+
+        .card-dark:hover {
+            border-color: #5a2a2a;
+            box-shadow: 0 18px 48px -12px rgba(105, 4, 4, 0.25);
+        }
+
+        .card-dark .card-title-text {
+            color: #f5e8df;
+        }
+
+        .card-dark .spec-list li {
+            color: #c9b09a;
+        }
+
+        .card-dark .spec-dot {
+            background: #c87060;
+            opacity: 0.6;
+        }
+
+        .card-dark .card-footer-row {
+            border-top-color: #2e1a1a;
+        }
+
+        .card-dark .duration-label {
+            color: #7a5a4a;
+        }
+
+        .card-dark .apply-btn {
+            background: #fdf8f3;
+            color: var(--crimson);
+        }
+
+        .card-dark .apply-btn:hover {
+            background: #fff;
+            box-shadow: 0 8px 24px rgba(255, 255, 255, 0.12);
+            color: var(--crimson-dk);
+        }
+
+        .card-dark .icon-box {
+            background: #ffffff;
+            border-color: #4a2020;
+        }
+
+        /* ── SCROLL REVEAL ── */
+        .reveal {
+            opacity: 0;
+            transform: translateY(22px);
+            transition: opacity 0.6s cubic-bezier(0.22, 0.61, 0.36, 1),
+                transform 0.6s cubic-bezier(0.22, 0.61, 0.36, 1);
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ── RESPONSIVE TWEAKS ── */
+        @media (max-width: 576px) {
+            .courses-section {
+                border-radius: 24px;
+                padding: 36px 0 48px;
+            }
+
+            .card-title-text {
+                font-size: 16px;
+            }
+        }
+    </style>
+
+
+    <section class="courses-section my-4 mx-2 mx-md-3">
+        <div class="container-xl px-3 px-sm-4 px-lg-5">
+
+            <!-- ── HEADING ── -->
+            <h2 class="section-heading text-center mb-5 reveal">
+                S-VYASA Deemed-to-be University Courses
+            </h2>
+
+            <!-- ════════════════════════════════════
+         UNDERGRADUATE
+    ════════════════════════════════════ -->
+            <div class="d-flex align-items-center gap-3 mb-4 reveal">
+                <span class="sub-label text-nowrap">Undergraduate</span>
+                <div class="label-rule"></div>
+            </div>
+
+            <div class="row g-3 g-lg-4 mb-5">
 
                 <!-- B.Tech -->
-                <div class="course-card">
-                    <div class="course-card-inner">
-                        <img src="https://kerlastudy-frontend.vercel.app/_next/image?url=%2Fassets%2FSvyasaUniversityAssets%2FBachelor_of_Technology.webp&w=384&q=75"
-                            alt="B.Tech" class="course-img" />
-                        <div class="course-meta">
-                            <p class="course-label">B.Tech</p>
-                            <p class="course-title">Bachelor of Technology</p>
-                            <ul class="course-list">
-                                <li>Computer Science and Engineering (CSE)</li>
-                                <li>CSE Artificial Intelligence &amp; Machine Learning</li>
-                                <li>CSE Cybersecurity</li>
-                                <li>CSE Data Science</li>
-                            </ul>
+                <div class="col-12 col-md-6 reveal" style="transition-delay:.05s">
+                    <div class="course-card">
+                        <div class="d-flex gap-3 align-items-start mb-4">
+                            <div class="icon-box">
+                                <img src="clg-logo/Bachelor of Technology.svg" alt="B.Tech icon" />
+                            </div>
+                            <div>
+                                <span class="course-badge">B.Tech</span>
+                                <p class="card-title-text">Bachelor of Technology</p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="course-footer btech">
-                        <div class="duration-badge">
-                            <svg class="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <circle cx="12" cy="12" r="10" />
-                                <path d="M12 6v6l4 2" />
-                            </svg>
-                            4 Years
+                        <ul class="spec-list">
+                            <li><span class="spec-dot"></span>Computer Science &amp; Engineering</li>
+                            <li><span class="spec-dot"></span>AI &amp; Machine Learning</li>
+                            <li><span class="spec-dot"></span>Cybersecurity</li>
+                            <li><span class="spec-dot"></span>Data Science</li>
+                        </ul>
+                        <div class="card-footer-row">
+                            <span class="duration-label">
+                                <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <circle cx="12" cy="12" r="9" stroke-width="1.5" />
+                                    <path d="M12 7v5l3 2" stroke-width="1.5" stroke-linecap="round" />
+                                </svg>
+                                4 years
+                            </span>
+                            <a href="#apply" class="apply-btn">Apply →</a>
                         </div>
-                        <button class="apply-btn-card">Apply Now</button>
                     </div>
                 </div>
 
                 <!-- BCA -->
-                <div class="course-card">
-                    <div class="course-card-inner">
-                        <img src="https://kerlastudy-frontend.vercel.app/_next/image?url=%2Fassets%2FSvyasaUniversityAssets%2FBachelor_of_Computer_Applications.webp&w=384&q=75"
-                            alt="BCA" class="course-img" />
-                        <div class="course-meta">
-                            <p class="course-label">BCA</p>
-                            <p class="course-title">Bachelor of Computer Applications</p>
-                            <ul class="course-list">
-                                <li>Cybersecurity, Ethical Hacking &amp; Digital Forensics</li>
-                                <li>Artificial Intelligence, Cloud Computing &amp; DevOps</li>
-                            </ul>
+                <div class="col-12 col-md-6 reveal" style="transition-delay:.1s">
+                    <div class="course-card">
+                        <div class="d-flex gap-3 align-items-start mb-4">
+                            <div class="icon-box">
+                                <img src="clg-logo/Bachelor of Computer Applications.svg" alt="BCA icon" />
+                            </div>
+                            <div>
+                                <span class="course-badge">BCA</span>
+                                <p class="card-title-text">Bachelor of Computer Applications</p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="course-footer bca">
-                        <div class="duration-badge">
-                            <svg class="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <circle cx="12" cy="12" r="10" />
-                                <path d="M12 6v6l4 2" />
-                            </svg>
-                            3 Years
+                        <ul class="spec-list">
+                            <li><span class="spec-dot"></span>Cybersecurity, Ethical Hacking &amp; Digital Forensics
+                            </li>
+                            <li><span class="spec-dot"></span>Artificial Intelligence, Cloud Computing &amp; DevOps</li>
+                        </ul>
+                        <div class="card-footer-row">
+                            <span class="duration-label">
+                                <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <circle cx="12" cy="12" r="9" stroke-width="1.5" />
+                                    <path d="M12 7v5l3 2" stroke-width="1.5" stroke-linecap="round" />
+                                </svg>
+                                3 years
+                            </span>
+                            <a href="#apply" class="apply-btn">Apply →</a>
                         </div>
-                        <button class="apply-btn-card">Apply Now</button>
                     </div>
                 </div>
 
                 <!-- BBA -->
-                <div class="course-card">
-                    <div class="course-card-inner">
-                        <img src="https://kerlastudy-frontend.vercel.app/_next/image?url=%2Fassets%2FSvyasaUniversityAssets%2FBachelor_of_Business_Administration.webp&w=384&q=75"
-                            alt="BBA" class="course-img" />
-                        <div class="course-meta">
-                            <p class="course-label">BBA</p>
-                            <p class="course-title">Bachelor of Business Administration</p>
-                            <ul class="course-list">
-                                <li>Aviation, Logistics &amp; Supply Chain Management</li>
-                                <li>International Business, Digital Marketing &amp; Business Analytics</li>
-                                <li>Sports Management</li>
-                            </ul>
+                <div class="col-12 col-md-6 reveal" style="transition-delay:.15s">
+                    <div class="course-card">
+                        <div class="d-flex gap-3 align-items-start mb-4">
+                            <div class="icon-box">
+                                <img src="clg-logo/Bachelor of Business Administration.svg" alt="BBA icon" />
+                            </div>
+                            <div>
+                                <span class="course-badge">BBA</span>
+                                <p class="card-title-text">Bachelor of Business Administration</p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="course-footer bba">
-                        <div class="duration-badge">
-                            <svg class="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <circle cx="12" cy="12" r="10" />
-                                <path d="M12 6v6l4 2" />
-                            </svg>
-                            3 Years
+                        <ul class="spec-list">
+                            <li><span class="spec-dot"></span>Aviation, Logistics &amp; Supply Chain Management</li>
+                            <li><span class="spec-dot"></span>International Business, Digital Marketing &amp; Business
+                                Analytics</li>
+                            <li><span class="spec-dot"></span>Sports Management</li>
+                        </ul>
+                        <div class="card-footer-row">
+                            <span class="duration-label">
+                                <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <circle cx="12" cy="12" r="9" stroke-width="1.5" />
+                                    <path d="M12 7v5l3 2" stroke-width="1.5" stroke-linecap="round" />
+                                </svg>
+                                3 years
+                            </span>
+                            <a href="#apply" class="apply-btn">Apply →</a>
                         </div>
-                        <button class="apply-btn-card">Apply Now</button>
                     </div>
                 </div>
 
                 <!-- B.Com -->
-                <div class="course-card">
-                    <div class="course-card-inner">
-                        <img src="https://kerlastudy-frontend.vercel.app/_next/image?url=%2Fassets%2FSvyasaUniversityAssets%2FBachelor_of_Commerce.webp&w=384&q=75"
-                            alt="B.Com" class="course-img" />
-                        <div class="course-meta">
-                            <p class="course-label">B.Com</p>
-                            <p class="course-title">Bachelor of Commerce</p>
-                            <ul class="course-list">
-                                <li>International Accounting &amp; Finance Integrated with ACCA</li>
-                            </ul>
+                <div class="col-12 col-md-6 reveal" style="transition-delay:.2s">
+                    <div class="course-card">
+                        <div class="d-flex gap-3 align-items-start mb-4">
+                            <div class="icon-box">
+                                <img src="clg-logo/Bachelor of Commerce.svg" alt="B.Com icon" />
+                            </div>
+                            <div>
+                                <span class="course-badge">B.Com</span>
+                                <p class="card-title-text">Bachelor of Commerce</p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="course-footer bcom">
-                        <div class="duration-badge">
-                            <svg class="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <circle cx="12" cy="12" r="10" />
-                                <path d="M12 6v6l4 2" />
-                            </svg>
-                            3 Years
+                        <ul class="spec-list">
+                            <li><span class="spec-dot"></span>International Accounting &amp; Finance</li>
+                            <li><span class="spec-dot"></span>Integrated with ACCA</li>
+                        </ul>
+                        <div class="card-footer-row">
+                            <span class="duration-label">
+                                <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <circle cx="12" cy="12" r="9" stroke-width="1.5" />
+                                    <path d="M12 7v5l3 2" stroke-width="1.5" stroke-linecap="round" />
+                                </svg>
+                                3 years
+                            </span>
+                            <a href="#apply" class="apply-btn">Apply →</a>
                         </div>
-                        <button class="apply-btn-card">Apply Now</button>
                     </div>
                 </div>
 
-                <!-- B.Sc CS -->
-                <div class="course-card md:col-span-2 lg:col-span-1">
-                    <div class="course-card-inner">
-                        <img src="https://kerlastudy-frontend.vercel.app/_next/image?url=%2Fassets%2FSvyasaUniversityAssets%2FBachelor_of_Science_in_Computer%20Science.webp&w=384&q=75"
-                            alt="B.Sc CS" class="course-img" />
-                        <div class="course-meta">
-                            <p class="course-label">B.Sc Computer Science</p>
-                            <p class="course-title">Bachelor of Science in Computer Science</p>
-                            <ul class="course-list">
-                                <li>Data Science</li>
-                            </ul>
+                <!-- B.Sc CS — full width dark card -->
+                <div class="col-12 reveal" style="transition-delay:.25s">
+                    <div class="course-card card-dark flex-md-row align-items-md-center gap-4 p-4">
+                        <div class="d-flex gap-3 align-items-center flex-grow-1">
+                            <div class="icon-box">
+                                <img src="clg-logo/Bachelor of Science in Computer Science.svg" alt="B.Sc CS icon" />
+                            </div>
+                            <div>
+                                <span class="course-badge"
+                                    style="background:#2e1a1a;border-color:#5a2a2a;color:#c87060;">B.Sc CS</span>
+                                <p class="card-title-text" style="font-size:20px;">Bachelor of Science in Computer
+                                    Science</p>
+                                <p style="font-size:13px;color:#9a7060;margin:0;">Specialisation: Data Science</p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="course-footer bsc">
-                        <div class="duration-badge">
-                            <svg class="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <circle cx="12" cy="12" r="10" />
-                                <path d="M12 6v6l4 2" />
-                            </svg>
-                            3 Years
+                        <div
+                            class="d-flex align-items-center gap-3 flex-md-column align-items-md-end mt-3 mt-md-0 flex-shrink-0">
+                            <span class="duration-label">
+                                <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <circle cx="12" cy="12" r="9" stroke-width="1.5" />
+                                    <path d="M12 7v5l3 2" stroke-width="1.5" stroke-linecap="round" />
+                                </svg>
+                                3 years
+                            </span>
+                            <a href="#apply" class="apply-btn">Apply →</a>
                         </div>
-                        <button class="apply-btn-card">Apply Now</button>
                     </div>
                 </div>
+
+            </div><!-- /UG row -->
+
+
+            <!-- ════════════════════════════════════
+         POSTGRADUATE
+    ════════════════════════════════════ -->
+            <div class="d-flex align-items-center gap-3 mb-4 reveal">
+                <span class="sub-label text-nowrap">Postgraduate</span>
+                <div class="label-rule"></div>
             </div>
 
-            <h3 class="text-3xl font-bold text-center heading-crimson mb-7">S-VYASA University PG Courses</h3>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+            <div class="row g-3 g-lg-4 mb-2">
 
                 <!-- MBA Pro -->
-                <div class="course-card">
-                    <div class="course-card-inner">
-                        <img src="https://kerlastudy-frontend.vercel.app/_next/image?url=%2Fassets%2FSvyasaUniversityAssets%2FMaster_of_Business_Administration%20(Pro).webp&w=384&q=75"
-                            alt="MBA Pro" class="course-img" />
-                        <div class="course-meta">
-                            <p class="course-label">MBA (Pro)</p>
-                            <p class="course-title">Master of Business Administration (Pro)</p>
-                            <ul class="course-list">
-                                <li>Marketing, Finance &amp; Business Analytics</li>
-                                <li>Digital Business Management &amp; Data Analytics</li>
-                                <li>Hospital Administration with Medical Tourism</li>
-                                <li>Logistics &amp; Supply Chain Management</li>
-                            </ul>
+                <div class="col-12 col-md-6 reveal" style="transition-delay:.05s">
+                    <div class="course-card">
+                        <div class="d-flex gap-3 align-items-start mb-4">
+                            <div class="icon-box">
+                                <img src="clg-logo/Master of Business Administration.svg" alt="MBA Pro icon" />
+                            </div>
+                            <div>
+                                <span class="course-badge">MBA (Pro)</span>
+                                <p class="card-title-text">Master of Business Administration (Pro)</p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="course-footer mba">
-                        <div class="duration-badge">
-                            <svg class="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <circle cx="12" cy="12" r="10" />
-                                <path d="M12 6v6l4 2" />
-                            </svg>
-                            2 Years
+                        <ul class="spec-list">
+                            <li><span class="spec-dot"></span>Marketing, Finance &amp; Business Analytics</li>
+                            <li><span class="spec-dot"></span>Digital Business Management &amp; Data Analytics</li>
+                            <li><span class="spec-dot"></span>Hospital Administration with Medical Tourism</li>
+                            <li><span class="spec-dot"></span>Logistics &amp; Supply Chain Management</li>
+                        </ul>
+                        <div class="card-footer-row">
+                            <span class="duration-label">
+                                <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <circle cx="12" cy="12" r="9" stroke-width="1.5" />
+                                    <path d="M12 7v5l3 2" stroke-width="1.5" stroke-linecap="round" />
+                                </svg>
+                                2 years
+                            </span>
+                            <a href="#apply" class="apply-btn">Apply →</a>
                         </div>
-                        <button class="apply-btn-card">Apply Now</button>
                     </div>
                 </div>
 
                 <!-- MBA Dual -->
-                <div class="course-card">
-                    <div class="course-card-inner">
-                        <img src="https://kerlastudy-frontend.vercel.app/_next/image?url=%2Fassets%2FSvyasaUniversityAssets%2FMaster_of_Business_Administration.webp&w=384&q=75"
-                            alt="MBA Dual" class="course-img" />
-                        <div class="course-meta">
-                            <p class="course-label">MBA (Dual Specialisation)</p>
-                            <p class="course-title">Master of Business Administration (Dual Specialisation)</p>
-                            <ul class="course-list">
-                                <li>Finance, Marketing &amp; Human Resources, Operations, Business Analytics,
-                                    International Business</li>
-                            </ul>
+                <div class="col-12 col-md-6 reveal" style="transition-delay:.1s">
+                    <div class="course-card">
+                        <div class="d-flex gap-3 align-items-start mb-4">
+                            <div class="icon-box">
+                                <img src="clg-logo/Master of Business Administration (Dual Specialisation).svg"
+                                    alt="MBA Dual icon" />
+                            </div>
+                            <div>
+                                <span class="course-badge">MBA Dual</span>
+                                <p class="card-title-text">Master of Business Administration (Dual Specialisation)</p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="course-footer mba">
-                        <div class="duration-badge">
-                            <svg class="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <circle cx="12" cy="12" r="10" />
-                                <path d="M12 6v6l4 2" />
-                            </svg>
-                            2 Years
+                        <ul class="spec-list">
+                            <li><span class="spec-dot"></span>Finance, Marketing, Human Resources &amp; Operations</li>
+                            <li><span class="spec-dot"></span>Business Analytics &amp; International Business</li>
+                        </ul>
+                        <div class="card-footer-row">
+                            <span class="duration-label">
+                                <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <circle cx="12" cy="12" r="9" stroke-width="1.5" />
+                                    <path d="M12 7v5l3 2" stroke-width="1.5" stroke-linecap="round" />
+                                </svg>
+                                2 years
+                            </span>
+                            <a href="#apply" class="apply-btn">Apply →</a>
                         </div>
-                        <button class="apply-btn-card">Apply Now</button>
                     </div>
                 </div>
 
                 <!-- MCA -->
-                <div class="course-card">
-                    <div class="course-card-inner">
-                        <img src="https://kerlastudy-frontend.vercel.app/_next/image?url=%2Fassets%2FSvyasaUniversityAssets%2FMaster_of_Computer_Applications.webp&w=384&q=75"
-                            alt="MCA" class="course-img" />
-                        <div class="course-meta">
-                            <p class="course-label">MCA</p>
-                            <p class="course-title">Master of Computer Applications</p>
-                            <ul class="course-list">
-                                <li>Cloud Computing &amp; DevOps</li>
-                                <li>Cybersecurity, Ethical Hacking &amp; Cyber Forensics</li>
-                                <li>Artificial Intelligence, Machine Learning &amp; Data Science</li>
-                                <li>Data Science &amp; Big Data Analytics</li>
-                            </ul>
+                <div class="col-12 col-md-6 reveal" style="transition-delay:.15s">
+                    <div class="course-card">
+                        <div class="d-flex gap-3 align-items-start mb-4">
+                            <div class="icon-box">
+                                <img src="clg-logo/Master of Computer Applications.svg" alt="MCA icon" />
+                            </div>
+                            <div>
+                                <span class="course-badge">MCA</span>
+                                <p class="card-title-text">Master of Computer Applications</p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="course-footer mca">
-                        <div class="duration-badge">
-                            <svg class="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <circle cx="12" cy="12" r="10" />
-                                <path d="M12 6v6l4 2" />
-                            </svg>
-                            2 Years
+                        <ul class="spec-list">
+                            <li><span class="spec-dot"></span>Cloud Computing &amp; DevOps</li>
+                            <li><span class="spec-dot"></span>Cybersecurity, Ethical Hacking &amp; Cyber Forensics</li>
+                            <li><span class="spec-dot"></span>Artificial Intelligence, Machine Learning &amp; Data
+                                Science</li>
+                            <li><span class="spec-dot"></span>Data Science &amp; Big Data Analytics</li>
+                        </ul>
+                        <div class="card-footer-row">
+                            <span class="duration-label">
+                                <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <circle cx="12" cy="12" r="9" stroke-width="1.5" />
+                                    <path d="M12 7v5l3 2" stroke-width="1.5" stroke-linecap="round" />
+                                </svg>
+                                2 years
+                            </span>
+                            <a href="#apply" class="apply-btn">Apply →</a>
                         </div>
-                        <button class="apply-btn-card">Apply Now</button>
                     </div>
                 </div>
 
                 <!-- M.Sc CS -->
-                <div class="course-card">
-                    <div class="course-card-inner">
-                        <img src="https://kerlastudy-frontend.vercel.app/_next/image?url=%2Fassets%2FSvyasaUniversityAssets%2FMaster_of_Science_in_Computer%20Science.webp&w=384&q=75"
-                            alt="M.Sc CS" class="course-img" />
-                        <div class="course-meta">
-                            <p class="course-label">M.Sc Computer Science</p>
-                            <p class="course-title">Master of Science in Computer Science</p>
-                            <ul class="course-list">
-                                <li>Cybersecurity, Ethical Hacking &amp; Cyber Forensics</li>
-                                <li>Data Sciences &amp; Big Data Analytics</li>
-                            </ul>
+                <div class="col-12 col-md-6 reveal" style="transition-delay:.2s">
+                    <div class="course-card">
+                        <div class="d-flex gap-3 align-items-start mb-4">
+                            <div class="icon-box">
+                                <img src="clg-logo/Master of Science in Computer Science.svg" alt="M.Sc CS icon" />
+                            </div>
+                            <div>
+                                <span class="course-badge">M.Sc CS</span>
+                                <p class="card-title-text">Master of Science in Computer Science</p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="course-footer msc">
-                        <div class="duration-badge">
-                            <svg class="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <circle cx="12" cy="12" r="10" />
-                                <path d="M12 6v6l4 2" />
-                            </svg>
-                            2 Years
+                        <ul class="spec-list">
+                            <li><span class="spec-dot"></span>Cybersecurity, Ethical Hacking &amp; Cyber Forensics</li>
+                            <li><span class="spec-dot"></span>Data Sciences &amp; Big Data Analytics</li>
+                        </ul>
+                        <div class="card-footer-row">
+                            <span class="duration-label">
+                                <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <circle cx="12" cy="12" r="9" stroke-width="1.5" />
+                                    <path d="M12 7v5l3 2" stroke-width="1.5" stroke-linecap="round" />
+                                </svg>
+                                2 years
+                            </span>
+                            <a href="#apply" class="apply-btn">Apply →</a>
                         </div>
-                        <button class="apply-btn-card">Apply Now</button>
                     </div>
                 </div>
-            </div>
 
-            <!-- Teaching partners -->
-            <p class="text-center text-gray-900 text-base text-lg mb-8">The courses offered at S-VYASA University,
-                Thiruvananthapuram, are highly reputable, strengthened by teaching partnerships with<br> leading
-                organisations worldwide.</p>
-            <div class="flex flex-wrap justify-center gap-10 items-center">
-                <img src="https://kerlastudy-frontend.vercel.app/_next/image?url=%2Fassets%2FSvyasaUniversityAssets%2FTCS.webp&w=384&q=75"
-                    alt="TCS" class="h-28 object-contain shadow-lg rounded-lg" />
-                <img src="https://kerlastudy-frontend.vercel.app/_next/image?url=%2Fassets%2FSvyasaUniversityAssets%2FHP.webp&w=384&q=75"
-                    alt="HP" class="h-28 object-contain shadow-lg rounded-lg" />
-                <img src="https://kerlastudy-frontend.vercel.app/_next/image?url=%2Fassets%2FSvyasaUniversityAssets%2FMicrosoft_.webp&w=384&q=75"
-                    alt="Microsoft" class="h-28 object-contain shadow-lg rounded-lg" />
-                <img src="https://kerlastudy-frontend.vercel.app/_next/image?url=%2Fassets%2FSvyasaUniversityAssets%2FIBM.webp&w=384&q=75"
-                    alt="IBM" class="h-28 object-contain shadow-lg rounded-lg" />
-            </div>
-        </div>
+            </div><!-- /PG row -->
+
+        </div><!-- /container -->
     </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Scroll reveal
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.08, rootMargin: '0px 0px -50px 0px' });
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // Apply button — swap href to your actual application URL
+        document.querySelectorAll('.apply-btn').forEach(btn => {
+            btn.addEventListener('click', e => {
+                // e.preventDefault(); // remove this if you set a real href
+                // window.open('https://your-apply-url.com', '_blank');
+            });
+        });
+    </script>
+
+
+
+
 
     <!-- ===== PLACEMENTS ===== -->
     <section id="placements" class="py-6 bg-white ">
@@ -825,7 +1292,7 @@
             <div class="overflow-hidden">
                 <div class="recruiter-track">
                     <!-- First set -->
-                    <img src="https://kerlastudy-frontend.vercel.app/_next/image?url=%2Fassets%2FSvyasaUniversityAssets%2FGoogle.webp&w=384&q=75"
+                    <img src="https://kerlastudy-frontend.vercel.app/_next/image?url=%2Fassets%2FSvyasaUniversityAssets%2FSports_Facilities.webp&w=640&q=75"
                         alt="Google" class="h-28 object-contain flex-shrink-0" />
                     <img src="https://kerlastudy-frontend.vercel.app/_next/image?url=%2Fassets%2FSvyasaUniversityAssets%2FAmazon.webp&w=384&q=75"
                         alt="Amazon" class="h-28 object-contain flex-shrink-0" />
@@ -965,278 +1432,368 @@
         </div>
     </section>
 
-    <!-- ===== WHY S-VYASA ===== -->
-    <section id="why" class="py-16 bg-gray-50">
-        <div class="max-w-8xl mx-auto px-24">
-            <h2 class="text-3xl md:text-4xl font-bold text-center heading-crimson mb-12">Why S-VYASA University,
-                Trivandrum</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-16">
 
-                <!-- Card 1 -->
-                <div
-                    class="relative bg-white rounded-2xl shadow-lg p-8 pt-12 flex flex-col items-center text-center gap-4 transition-all duration-300 group">
 
-                    <!-- Floating Icon -->
-                    <div class="absolute -top-7 w-16 h-16 rounded-full 
-                bg-purple-100 flex items-center justify-center 
-                transition-all duration-300 
-                group-hover:bg-white shadow-md">
+    <section id="why" class="py-5" style="background-color: #e9e9e9;">
+        <div class="container-fluid px-lg-5">
 
-                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#7c3aed"
-                            class="transition-all duration-300 group-hover:stroke-purple-600" stroke-width="1.8">
-                            <rect x="3" y="4" width="18" height="16" rx="2" />
-                            <path d="M7 8h10M7 12h6" />
-                        </svg>
+            <!-- Heading -->
+            <div class="mb-5">
+                <h2 class="display-6 fw-bold text-dark">
+                    <span style="color:#690404;"> Why </span>S-VYASA University, Trivandrum
+                </h2>
+            </div>
+
+            <!-- Grid -->
+            <div class="row g-0">
+
+                <!-- ITEM -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="why-item p-5 h-100">
+
+                        <span class="why-number">01</span>
+
+                        <h5 class="fw-bold mt-4">Renowned Accreditations</h5>
+
+                        <p class="text-muted mt-3">
+                            S-VYASA University, Kerala, is a deemed-to-be University recognised by the UGC with Category
+                            1 status and approved by AICTE. It also holds an NAAC 'A+' accreditation.
+                        </p>
+
                     </div>
-
-                    <!-- Content -->
-                    <h5 class="font-bold text-gray-900 text-xl transition-all duration-300 group-hover:text-white">
-                        Renowned Accreditations
-                    </h5>
-
-                    <p
-                        class="text-gray-600 text-lg leading-relaxed transition-all duration-300 group-hover:text-white/90">
-                        S-VYASA University, Kerala, is a deemed-to-be University recognised by the UGC with Category 1
-                        status and approved by AICTE. It also holds an NAAC 'A+' accreditation.
-                    </p>
                 </div>
 
-                <!-- Card 2 – featured -->
-                <div
-                    class="relative bg-white rounded-2xl shadow-lg p-8 pt-12 flex flex-col items-center text-center gap-4 transition-all duration-300 group">
+                <!-- ITEM -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="why-item p-5 h-100">
 
-                    <!-- Floating Icon -->
-                    <div class="absolute -top-7 w-16 h-16 rounded-full 
-                bg-purple-100 flex items-center justify-center 
-                transition-all duration-300 
-                group-hover:bg-white shadow-md">
+                        <span class="why-number">02</span>
 
-                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#7c3aed"
-                            class="transition-all duration-300 group-hover:stroke-purple-600" stroke-width="1.8">
-                            <rect x="3" y="4" width="18" height="16" rx="2" />
-                            <path d="M7 8h10M7 12h6" />
-                        </svg>
+                        <h5 class="fw-bold mt-4">Value-Oriented Education</h5>
+
+                        <p class="text-muted mt-3">
+                            The University offers value-oriented education combining traditional methods with modern
+                            science. The curriculum promotes personal development, & self-discipline, inspiring students
+                            to contribute positively to society.
+                        </p>
+
                     </div>
-
-                    <!-- Content -->
-                    <h5 class="font-bold text-gray-900 text-xl transition-all duration-300 group-hover:text-white">
-                        Value-Oriented Education
-                    </h5>
-
-                    <p
-                        class="text-gray-600 text-lg leading-relaxed transition-all duration-300 group-hover:text-white/90">
-                        The University offers value-oriented education combining traditional methods with modern
-                        science. The curriculum promotes personal development, & self-discipline, inspiring students to
-                        contribute positively to society.
-                    </p>
                 </div>
 
-                <!-- Card 3 -->
-                <div
-                    class="relative bg-white rounded-2xl shadow-lg p-8 pt-12 flex flex-col items-center text-center gap-4 transition-all duration-300 group">
+                <!-- ITEM -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="why-item p-5 h-100">
 
-                    <!-- Floating Icon -->
-                    <div class="absolute -top-7 w-16 h-16 rounded-full 
-                bg-purple-100 flex items-center justify-center 
-                transition-all duration-300 
-                group-hover:bg-white shadow-md">
+                        <span class="why-number">03</span>
 
-                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#7c3aed"
-                            class="transition-all duration-300 group-hover:stroke-purple-600" stroke-width="1.8">
-                            <rect x="3" y="4" width="18" height="16" rx="2" />
-                            <path d="M7 8h10M7 12h6" />
-                        </svg>
+                        <h5 class="fw-bold mt-4">State-of-the-Art Infrastructure</h5>
+
+                        <p class="text-muted mt-3">
+                            S-VYASA's infrastructure comprises modern architecture and technology, designed to enhance
+                            the learning experience of students, adding to their all-around holistic growth and
+                            development.
+                        </p>
+
                     </div>
-
-                    <!-- Content -->
-                    <h5 class="font-bold text-gray-900 text-xl transition-all duration-300 group-hover:text-white">
-                        State-of-the-Art Infrastructure
-                    </h5>
-
-                    <p
-                        class="text-gray-600 text-lg leading-relaxed transition-all duration-300 group-hover:text-white/90">
-                        S-VYASA's infrastructure comprises modern architecture and technology, designed to enhance the
-                        learning experience of students, adding to their all-around holistic growth and development.
-                    </p>
                 </div>
 
-                <!-- Card 4 -->
-                <div
-                    class="relative bg-white rounded-2xl shadow-lg p-8 pt-12 flex flex-col items-center text-center gap-4 transition-all duration-300 group">
+                <div class="col-md-6 col-lg-4">
+                    <div class="why-item p-5 h-100">
 
-                    <!-- Floating Icon -->
-                    <div class="absolute -top-7 w-16 h-16 rounded-full 
-                bg-purple-100 flex items-center justify-center 
-                transition-all duration-300 
-                group-hover:bg-white shadow-md">
+                        <span class="why-number">04</span>
 
-                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#7c3aed"
-                            class="transition-all duration-300 group-hover:stroke-purple-600" stroke-width="1.8">
-                            <rect x="3" y="4" width="18" height="16" rx="2" />
-                            <path d="M7 8h10M7 12h6" />
-                        </svg>
+                        <h5 class="fw-bold mt-4">Rewarding Scholarships</h5>
+
+                        <p class="text-muted mt-3">
+                            The S-VYASA University scholarships are offered to support deserving students in pursuing
+                            their academic goals. These scholarships are designed to encourage academic excellence and
+                            provide financial assistance to students from diverse backgrounds.
+                        </p>
+
                     </div>
-
-                    <!-- Content -->
-                    <h5 class="font-bold text-gray-900 text-xl transition-all duration-300 group-hover:text-white">
-                        Rewarding Scholarships
-                    </h5>
-
-                    <p
-                        class="text-gray-600 text-lg leading-relaxed transition-all duration-300 group-hover:text-white/90">
-                        The S-VYASA University scholarships are offered to support deserving students in pursuing their
-                        academic goals. These scholarships are designed to encourage academic excellence and provide
-                        financial assistance to students from diverse backgrounds.
-                    </p>
                 </div>
 
-                <!-- Card 5 -->
-                <div
-                    class="relative bg-white rounded-2xl shadow-lg p-8 pt-12 flex flex-col items-center text-center gap-4 transition-all duration-300 group">
+                <div class="col-md-6 col-lg-4">
+                    <div class="why-item p-5 h-100">
 
-                    <!-- Floating Icon -->
-                    <div class="absolute -top-7 w-16 h-16 rounded-full 
-                bg-purple-100 flex items-center justify-center 
-                transition-all duration-300 
-                group-hover:bg-white shadow-md">
+                        <span class="why-number">05</span>
 
-                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#7c3aed"
-                            class="transition-all duration-300 group-hover:stroke-purple-600" stroke-width="1.8">
-                            <rect x="3" y="4" width="18" height="16" rx="2" />
-                            <path d="M7 8h10M7 12h6" />
-                        </svg>
+                        <h5 class="fw-bold mt-4">Efficient Faculty</h5>
+
+                        <p class="text-muted mt-3">
+                            The university houses a distinguished faculty known for academic excellence in various
+                            domains and interdisciplinary research. The team includes highly qualified professors and
+                            researchers with advanced degrees and international experience.
+                        </p>
+
                     </div>
-
-                    <!-- Content -->
-                    <h5 class="font-bold text-gray-900 text-xl transition-all duration-300 group-hover:text-white">
-                        Efficient Faculty
-                    </h5>
-
-                    <p
-                        class="text-gray-600 text-lg leading-relaxed transition-all duration-300 group-hover:text-white/90">
-                        The university houses a distinguished faculty known for academic excellence in various domains
-                        and interdisciplinary research. The team includes highly qualified professors and researchers
-                        with advanced degrees and international experience.
-                    </p>
                 </div>
 
-                <!-- Card 6 -->
-                <div
-                    class="relative bg-white rounded-2xl shadow-lg p-8 pt-12 flex flex-col items-center text-center gap-4 transition-all duration-300 group">
+                <div class="col-md-6 col-lg-4">
+                    <div class="why-item p-5 h-100">
 
-                    <!-- Floating Icon -->
-                    <div class="absolute -top-7 w-16 h-16 rounded-full 
-                bg-purple-100 flex items-center justify-center 
-                transition-all duration-300 
-                group-hover:bg-white shadow-md">
+                        <span class="why-number">06</span>
 
-                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#7c3aed"
-                            class="transition-all duration-300 group-hover:stroke-purple-600" stroke-width="1.8">
-                            <rect x="3" y="4" width="18" height="16" rx="2" />
-                            <path d="M7 8h10M7 12h6" />
-                        </svg>
+                        <h5 class="fw-bold mt-4">Career Prospects</h5>
+
+                        <p class="text-muted mt-3">
+                            The university equips students with skills and knowledge that enhance their career
+                            opportunities. Graduates are well prepared for roles in academia, healthcare, wellness
+                            industries and entrepreneurship, supported by strong industry connections and practical
+                            training.
+                        </p>
+
                     </div>
-
-                    <!-- Content -->
-                    <h5 class="font-bold text-gray-900 text-xl transition-all duration-300 group-hover:text-white">
-                        Career Prospects
-                    </h5>
-
-                    <p
-                        class="text-gray-600 text-lg leading-relaxed transition-all duration-300 group-hover:text-white/90">
-                        The university equips students with skills and knowledge that enhance their career
-                        opportunities. Graduates are well prepared for roles in academia, healthcare, wellness
-                        industries and entrepreneurship, supported by strong industry connections and practical
-                        training.
-                    </p>
                 </div>
+
+                <!-- Repeat for 4,5,6 -->
+
             </div>
         </div>
     </section>
+
+    <style>
+        /* Base item */
+        .why-item {
+            position: relative;
+            background: #ffffff;
+            border: none;
+            transition: all 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+            overflow: hidden;
+        }
+
+        /* Grid line feel */
+        .why-item {
+            border-right: 1px solid rgba(0, 0, 0, 0.08);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+        }
+
+        /* Number style */
+        .why-number {
+            font-size: 14px;
+            color: #690404;
+            letter-spacing: 2px;
+            font-weight: 600;
+        }
+
+        /* Hover effect */
+        .why-item::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 0%;
+            height: 2px;
+            background: #690404;
+            transition: width 0.4s ease;
+        }
+
+        /* Hover interaction */
+        .why-item:hover {
+            transform: translateY(-8px);
+            background: #fafafa;
+        }
+
+        .why-item:hover::before {
+            width: 100%;
+        }
+
+        /* Text animation */
+        .why-item h5 {
+            transition: color 0.3s ease;
+        }
+
+        .why-item:hover h5 {
+            color: #690404;
+        }
+
+        /* Subtle fade-up on load */
+        .why-item {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeUp 0.8s ease forwards;
+        }
+
+        .why-item:nth-child(2) {
+            animation-delay: 0.1s;
+        }
+
+        .why-item:nth-child(3) {
+            animation-delay: 0.2s;
+        }
+
+        .why-item:nth-child(4) {
+            animation-delay: 0.3s;
+        }
+
+        .why-item:nth-child(5) {
+            animation-delay: 0.4s;
+        }
+
+        .why-item:nth-child(6) {
+            animation-delay: 0.5s;
+        }
+
+        @keyframes fadeUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
 
     <!-- ===== FAQs ===== -->
-    <section id="faqs" class="py-16 bg-white">
-        <div class="max-w-5xl mx-auto px-6">
-            <h2 class="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-10">A's to your Q's</h2>
-            <div class="space-y-4">
+    <section class="py-4 bg-gradient-to-b from-white to-gray-50">
+        <div class="max-w-7xl mx-auto px-6">
 
-                <details class="bg-white border border-gray-200 rounded-xl overflow-hidden shadow-sm" open>
-                    <summary
-                        class="flex justify-between items-center px-6 py-5 cursor-pointer font-semibold text-gray-800 text-base">
-                        <span>What is the S-VYASA Deemed-to-be University, Kerala, address?</span>
-                        <span class="faq-icon text-2xl text-gray-500 font-light select-none"></span>
-                    </summary>
-                    <p class="px-6 pb-5 text-gray-600 text-sm leading-relaxed">The Kerala campus of S-VYASA Deemed-to-be
-                        University is located at Panavoor P.O., Nedumangadu, Thiruvananthapuram, Kerala - 695568.</p>
-                </details>
+            <div class="grid lg:grid-cols-2 gap-6 items-start">
 
-                <details class="bg-white border border-gray-200 rounded-xl overflow-hidden shadow-sm">
-                    <summary
-                        class="flex justify-between items-center px-6 py-5 cursor-pointer font-semibold text-gray-800 text-base">
-                        <span>What are the fees for the S-VYASA University application form?</span>
-                        <span class="faq-icon text-2xl text-gray-500 font-light select-none"></span>
-                    </summary>
-                    <p class="px-6 pb-5 text-gray-600 text-sm leading-relaxed">The S-VYASA University application form
-                        fee for any of the courses is Rs 1,000/-.</p>
-                </details>
-
-                <details class="bg-white border border-gray-200 rounded-xl overflow-hidden shadow-sm">
-                    <summary
-                        class="flex justify-between items-center px-6 py-5 cursor-pointer font-semibold text-gray-800 text-base">
-                        <span>What are the various types of S-VYASA University scholarships?</span>
-                        <span class="faq-icon text-2xl text-gray-500 font-light select-none"></span>
-                    </summary>
-                    <p class="px-6 pb-5 text-gray-600 text-sm leading-relaxed">S-VYASA University, Trivandrum, Kerala,
-                        offers scholarships to support students who require financial assistance and to make education
-                        accessible to all. These scholarships are primarily offered to special students from a defence
-                        background, sports quota achievers, differently-abled students, those with siblings enrolled,
-                        single-parent families, and students ranked in national and state-level entrance exams.</p>
-                </details>
-
-                <details class="bg-white border border-gray-200 rounded-xl overflow-hidden shadow-sm">
-                    <summary
-                        class="flex justify-between items-center px-6 py-5 cursor-pointer font-semibold text-gray-800 text-base">
-                        <span>Does S-VYASA University, Thiruvananthapuram, offer placement?</span>
-                        <span class="faq-icon text-2xl text-gray-500 font-light select-none"></span>
-                    </summary>
-                    <p class="px-6 pb-5 text-gray-600 text-sm leading-relaxed">The S-VYASA University,
-                        Thiruvananthapuram, placement initiative is managed by the S-VYASA University Placement Cell.
-                        The primary function of the placement cell is to train and assist students in securing rewarding
-                        careers at some of the top MNCs, such as Google, Microsoft, Amazon, Reliance Jio, and many more.
+                <!-- LEFT SIDE -->
+                <div class="sticky top-24">
+                    <p class="text-sm text-[#690404] font-semibold uppercase tracking-widest">
+                        FAQ
                     </p>
-                </details>
 
-                <details class="bg-white border border-gray-200 rounded-xl overflow-hidden shadow-sm">
-                    <summary
-                        class="flex justify-between items-center px-6 py-5 cursor-pointer font-semibold text-gray-800 text-base">
-                        <span>What are the various facilities available at the hostel of S-VYASA University?</span>
-                        <span class="faq-icon text-2xl text-gray-500 font-light select-none"></span>
-                    </summary>
-                    <p class="px-6 pb-5 text-gray-600 text-sm leading-relaxed">The hostel at S-VYASA University is
-                        designed to meet all the basic needs of its students. This includes beds, study tables, bathroom
-                        equipment, a TV, a refrigerator, water purifiers, washing machines, dining tables, first aid
-                        kits, sofas, and more.</p>
-                </details>
+                    <h2 class="text-5xl md:text-8xl font-bold text-gray-900 leading-tight mt-4">
+                        Frequently<br>
+                        Asked <span class="text-[#690404]">Questions</span>
+                    </h2>
 
-                <details class="bg-white border border-gray-200 rounded-xl overflow-hidden shadow-sm">
-                    <summary
-                        class="flex justify-between items-center px-6 py-5 cursor-pointer font-semibold text-gray-800 text-base">
-                        <span>Does S-VYASA, Kerala, offer any internship opportunities?</span>
-                        <span class="faq-icon text-2xl text-gray-500 font-light select-none"></span>
-                    </summary>
-                    <p class="px-6 pb-5 text-gray-600 text-sm leading-relaxed">S-VYASA University offers internship
-                        opportunities for students pursuing engineering, management and Computer Science courses.</p>
-                </details>
+
+                </div>
+
+                <!-- RIGHT SIDE -->
+                <div class="space-y-4">
+
+                    <!-- ITEM -->
+                    <details
+                        class="group bg-white rounded-2xl p-6 border border-gray-200 transition duration-300 hover:shadow-lg">
+
+                        <summary
+                            class="flex justify-between items-center cursor-pointer font-semibold text-gray-900 text-base list-none">
+                            What is the S-VYASA Deemed-to-be University, Kerala, address?
+
+                            <span class="text-xl transition-transform duration-300 group-open:rotate-45">
+                                +
+                            </span>
+                        </summary>
+
+                        <p class="mt-4 text-gray-900 text-sm leading-relaxed">
+                            The Kerala campus of S-VYASA Deemed-to-be University is located at Panavoor P.O.,
+                            Nedumangadu, Thiruvananthapuram, Kerala - 695568.
+                        </p>
+                    </details>
+
+                    <details
+                        class="group bg-white rounded-2xl p-6 border border-gray-200 transition duration-300 hover:shadow-lg">
+
+                        <summary
+                            class="flex justify-between items-center cursor-pointer font-semibold text-gray-900 text-base list-none">
+                            What are the fees for the S-VYASA University application form?
+
+                            <span class="text-xl transition-transform duration-300 group-open:rotate-45">
+                                +
+                            </span>
+                        </summary>
+
+                        <p class="mt-4 text-gray-600 text-sm leading-relaxed">
+                            The S-VYASA University application form fee for any of the courses is Rs 1,000/-.
+                        </p>
+                    </details>
+
+                    <details
+                        class="group bg-white rounded-2xl p-6 border border-gray-200 transition duration-300 hover:shadow-lg">
+
+                        <summary
+                            class="flex justify-between items-center cursor-pointer font-semibold text-gray-900 text-base list-none">
+                            What are the various types of S-VYASA University scholarships?
+
+                            <span class="text-xl transition-transform duration-300 group-open:rotate-45">
+                                +
+                            </span>
+                        </summary>
+
+                        <p class="mt-4 text-gray-600 text-sm leading-relaxed">
+                            S-VYASA University, Trivandrum, Kerala, offers scholarships to support students who require
+                            financial assistance and to make education accessible to all. These scholarships are
+                            primarily offered to special students from a defence background, sports quota achievers,
+                            differently-abled students, those with siblings enrolled, single-parent families, and
+                            students ranked in national and state-level entrance exams.
+                        </p>
+                    </details>
+
+                    <!-- ITEM -->
+                    <details
+                        class="group bg-white rounded-2xl p-6 border border-gray-200 transition duration-300 hover:shadow-lg">
+
+                        <summary
+                            class="flex justify-between items-center cursor-pointer font-semibold text-gray-900 text-base list-none">
+                            Does S-VYASA Uneversity, Thiruvananthapuram, offer placement?
+
+                            <span class="text-xl transition-transform duration-300 group-open:rotate-45">
+                                +
+                            </span>
+                        </summary>
+
+                        <p class="mt-4 text-gray-600 text-sm">
+                            The S-VYASA University, Thiruvananthapuram, placement initiative is managed by the S-VYASA
+                            University Placement Cell. The primary function of the placement cell is to train and assist
+                            students in securing rewarding careers at some of the top MNCs, such as Google, Microsoft,
+                            Amazon, Reliance Jio, and many more.
+                        </p>
+                    </details>
+
+                    <!-- ITEM -->
+                    <details
+                        class="group bg-white rounded-2xl p-6 border border-gray-200 transition duration-300 hover:shadow-lg">
+
+                        <summary
+                            class="flex justify-between items-center cursor-pointer font-semibold text-gray-900 text-base list-none">
+                            What are the variour facilities available at the hostel of S-VYASA Uneversity?
+
+                            <span class="text-xl transition-transform duration-300 group-open:rotate-45">
+                                +
+                            </span>
+                        </summary>
+
+                        <p class="mt-4 text-gray-600 text-sm">
+                            The hostel at S-VYASA University is designed to meet all the basic needs of its students.
+                            This includes beds, study tables, bathroom equipment, a TV, a refrigerator, water purifiers,
+                            washing machines, dining tables, first aid kits, sofas, and more.
+                        </p>
+                    </details>
+
+                    <details
+                        class="group bg-white rounded-2xl p-6 border border-gray-200 transition duration-300 hover:shadow-lg">
+
+                        <summary
+                            class="flex justify-between items-center cursor-pointer font-semibold text-gray-900 text-base list-none">
+                            Does S-VYASA, Kerala, offer any internship opportunities?
+
+                            <span class="text-xl transition-transform duration-300 group-open:rotate-45">
+                                +
+                            </span>
+                        </summary>
+
+                        <p class="mt-4 text-gray-600 text-sm">
+                            S-VYASA University offers internship opportunities for students pursuing engineering,
+                            management and Computer Science courses.
+                        </p>
+                    </details>
+
+                </div>
 
             </div>
         </div>
     </section>
 
+    <style></style>
+
     <!-- ===== APPLY CTA ===== -->
-    <section class="apply-cta-section">
+    <section class="apply-cta-section mt-5">
         <div class="apply-cta-overlay"></div>
         <div class="relative z-10 text-center px-6 py-16">
-            <h2 class="text-3xl md:text-4xl font-bold text-white">Transform Your Future with S-VYASA
+            <h2 class="text-3xl md:text-5xl font-bold text-white">Transform Your Future with S-VYASA
                 University,<br />Trivandrum, Kerala.</h2>
             <button class="apply-cta-btn">Apply Now</button>
         </div>
@@ -1296,6 +1853,7 @@
         &copy; 2026 S-VYASA University. All rights reserved.
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script>
         const swiper = new Swiper(".mySwiper", {
             loop: true,
