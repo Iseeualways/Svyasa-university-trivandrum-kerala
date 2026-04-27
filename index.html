@@ -365,8 +365,11 @@
             <!-- Left text -->
             <div class="flex-1 text-white  lg:text-left">
                 <div class="text-3d-wrap">
-                    <h1 class="text-3d text-3xl md:text-5xl font-extrabold leading-snug mb-3">
-                        S-VYASA <br>Deemed-to-be-University
+                    <h1 class="text-3d text-3xl md:text-5xl font-extrabold leading-snug mb-3"
+                        style="line-height: 70px;">
+                        <span style="font-size: 70px;">S-VYASA </span><br><span
+                            style="font-size: 40px;">Deemed-to-be-University
+                        </span>
                     </h1>
                 </div>
                 <p class="text-lg md:text-xl font-light mb-1">Guiding Excellence in Mind, Body, &amp; Spirit through a
@@ -410,11 +413,23 @@
              focus:outline-none focus:ring-2 focus:ring-white/40 transition" />
 
                     <div class="flex gap-4">
-                        <input type="text" placeholder="Courses" class="w-1/2 px-4 py-2 bg-white/80 border border-white/20 rounded-lg text-sm text-black placeholder-black/70
-        focus:outline-none focus:ring-2 focus:ring-white/40 transition" />
+                        <select id="courseSelect" class="w-1/2 px-4 py-2 bg-white/80 border border-white/20 rounded-lg text-sm text-black
+        focus:outline-none focus:ring-2 focus:ring-white/40 transition">
+                            <option value="" disabled selected>Course</option>
+                            <option value="btech">B.Tech</option>
+                            <option value="bba">BBA</option>
+                            <option value="bca">BCA</option>
+                            <option value="bpes">Bachelor of Physical Education and Sports (BPES)</option>
+                            <option value="mba">MBA (Dual Specialisation)</option>
+                            <option value="mba-logistics">MBA in Logistics & Supply Chain Management (IBM)</option>
+                            <option value="mca">MCA</option>
+                            <option value="mpes">Master of Physical Education and Sports (MPES)</option>
+                        </select>
 
-                        <input type="text" placeholder="Specialization" class="w-1/2 px-4 py-2 bg-white/80 border border-white/20 rounded-lg text-sm text-black placeholder-black/70
-        focus:outline-none focus:ring-2 focus:ring-white/40 transition" />
+                        <select id="specializationSelect" class="w-1/2 px-4 py-2 bg-white/80 border border-white/20 rounded-lg text-sm text-black
+        focus:outline-none focus:ring-2 focus:ring-white/40 transition" disabled>
+                            <option value="" disabled selected>Specialization</option>
+                        </select>
                     </div>
 
                     <input type="text" placeholder="Message (Optional)" class="w-full px-4 py-4 bg-white/80 border border-white/20 rounded-lg text-sm text-black placeholder-black/70
@@ -423,11 +438,72 @@
                 </div>
 
                 <button class="mt-3 w-full py-3 rounded-xl font-semibold text-white text-base
-                 bg-gradient-to-r from-red-900 to-red-700 ransition duration-300 shadow-lg">
+                 bg-gradient-to-r from-red-900 to-red-700 transition duration-300 shadow-lg">
                     Submit
                 </button>
             </div>
         </div>
+
+        <script>
+            const specializationData = {
+                'btech': [
+                    'Computer Science Engineering (CSE)',
+                    'AI & ML (IBM)',
+                    'AIML (Add on Robotics - iHUB)',
+                    'Electronics & Communication Engineering'
+                ],
+                'bba': [
+                    'Aviation, Logistics & Supply Chain Management',
+                    'Logistics, Port & Supply Chain Management',
+                    'AI, Digital Marketing & Business Analytics'
+                ],
+                'bca': [
+                    'AI, Cyber Security and Blockchain',
+                    'AIML & Robotics (iHUB)',
+                    'Artificial Intelligence & Data Science'
+                ],
+                'bpes': [],
+                'mba': [
+                    'AI & Finance',
+                    'AI & Marketing',
+                    'AI & Business Analytics',
+                    'AI & Health Care'
+                ],
+                'mba-logistics': [],
+                'mca': [
+                    'AI, Cyber Security and Blockchain (IBM)',
+                    'AIML & Robotics (iHUB)',
+                    'Artificial Intelligence & Data Science (IBM)'
+                ],
+                'mpes': []
+            };
+
+            const courseSelect = document.getElementById('courseSelect');
+            const specializationSelect = document.getElementById('specializationSelect');
+
+            courseSelect.addEventListener('change', function () {
+                const selectedCourse = this.value;
+                const specializations = specializationData[selectedCourse];
+
+                // Clear previous options
+                specializationSelect.innerHTML = '<option value="" disabled selected>Select Specialization</option>';
+
+                if (specializations && specializations.length > 0) {
+                    // Enable and populate specialization dropdown
+                    specializationSelect.disabled = false;
+                    specializations.forEach(spec => {
+                        const option = document.createElement('option');
+                        option.value = spec;
+                        option.textContent = spec;
+                        specializationSelect.appendChild(option);
+                    });
+                } else {
+                    // Disable if no specializations
+                    specializationSelect.disabled = true;
+                    specializationSelect.innerHTML = '<option value="" disabled selected>No Specialization Required</option>';
+                }
+            });
+        </script>
     </section>
 
     <section id="about" class="py-10 ">
@@ -448,7 +524,7 @@
                     <h2 class="text-4xl md:text-4xl font-bold leading-tight text-gray-900">
                         S-VYASA University
                         <span class="text-[#690404]">(Deemed-to-be University)</span>,
-                        Sattva Global City Campus
+                        Trivandrum, Kerala
                     </h2>
 
                     <!-- Paragraph -->
@@ -481,7 +557,7 @@
                       shadow-sm hover:shadow-xl transition duration-300">
 
                             <img src="https://kerlastudy-frontend.vercel.app/_next/image?url=%2Fassets%2FSvyasaUniversityAssets%2FNAAC.webp&w=256&q=75"
-                                class="h-16 mb-4 object-contain transition duration-300 group-hover:scale-110" />
+                                class="h-24 mb-4 object-contain transition duration-300 group-hover:scale-110" />
 
                             <p class="font-semibold text-gray-800">
                                 Accredited ‘A+’ by NAAC
@@ -493,7 +569,7 @@
                       shadow-sm hover:shadow-xl transition duration-300">
 
                             <img src="https://kerlastudy-frontend.vercel.app/_next/image?url=%2Fassets%2FSvyasaUniversityAssets%2FAICTE%2520Logo.png&w=256&q=75"
-                                class="h-16 mb-4 object-contain transition duration-300 group-hover:scale-110" />
+                                class="h-24 mb-4 object-contain transition duration-300 group-hover:scale-110" />
 
                             <p class="font-semibold text-gray-800">
                                 Approved by AICTE
@@ -505,7 +581,7 @@
                       shadow-sm hover:shadow-xl transition duration-300">
 
                             <img src="https://kerlastudy-frontend.vercel.app/_next/image?url=%2Fassets%2FSvyasaUniversityAssets%2FUGC%2520Logo.png&w=256&q=75"
-                                class="h-16 mb-4 object-contain transition duration-300 group-hover:scale-110" />
+                                class="h-24 mb-4 object-contain transition duration-300 group-hover:scale-110" />
 
                             <p class="font-semibold text-gray-800">
                                 UGC Category I
@@ -517,7 +593,7 @@
                       shadow-sm hover:shadow-xl transition duration-300">
 
                             <img src="https://kerlastudy-frontend.vercel.app/_next/image?url=%2Fassets%2FSvyasaUniversityAssets%2FDSIR.webp&w=256&q=75"
-                                class="h-16 mb-4 object-contain transition duration-300 group-hover:scale-110" />
+                                class="h-24 mb-4 object-contain transition duration-300 group-hover:scale-110" />
 
                             <p class="font-semibold text-gray-800">
                                 DSIR Certified
@@ -709,7 +785,7 @@
         } */
 
         .container {
-            max-width: 1300px;
+            max-width: 1400px;
             margin: 0 auto;
             padding: 0 24px;
         }
@@ -801,8 +877,8 @@
         /* ─── CARD ─── */
         .card {
             background: #ffffff;
-            border: 1px solid var(--border);
-            border-radius: 0;
+            border: 1px solid #4d0303a7;
+            border-radius: 20;
             padding: 24px;
             display: flex;
             flex-direction: column;
@@ -816,7 +892,7 @@
             cursor: default;
             opacity: 0;
             transform: translateY(24px);
-            box-shadow: 0 20px 52px -12px rgba(105, 4, 4, .12), 0 4px 16px -4px rgba(0, 0, 0, .06);
+            box-shadow: 0 10px 12px -12px rgba(0, 0, 0, 0.431), 0 4px 16px -4px rgba(0, 0, 0, .06);
         }
 
         .card.in {
@@ -843,7 +919,7 @@
         .card:hover {
             transform: translateY(-4px);
             box-shadow: 0 20px 52px -12px rgba(105, 4, 4, .12), 0 4px 16px -4px rgba(0, 0, 0, .06);
-            border-color: var(--border2);
+            border: 1px solid #4d030340;
         }
 
         .card:hover::after {
@@ -911,11 +987,11 @@
 
         /* ─── ICON BOX ─── */
         .icon-box {
-            width: 52px;
-            height: 52px;
+            width: 72px;
+            height: 72px;
             flex-shrink: 0;
             border-radius: 0;
-            background: var(--cr-lt);
+            background: white;
             border: 1px solid rgba(105, 4, 4, .12);
             display: flex;
             align-items: center;
@@ -929,8 +1005,8 @@
         }
 
         .icon-box img {
-            width: 52px;
-            height: 52px;
+            width: 62px;
+            height: 62px;
             object-fit: contain;
         }
 
@@ -941,8 +1017,8 @@
 
         /* ─── BADGE ─── */
         .badge {
-            font-size: 10px;
-            font-weight: 500;
+            font-size: 15px;
+            font-weight: 800;
             letter-spacing: .14em;
             text-transform: uppercase;
             color: var(--cr);
@@ -1098,7 +1174,7 @@
     <div class="text-center mb-5 px-3">
 
         <!-- Heading -->
-        <h2 class="fw-bold display-6 mb-3" style="line-height:1.3;">
+        <h2 class="fw-bold display-5 mb-3" style="line-height:1.3;">
 
             S-VYASA University, Trivandrum, <span style="color:#690404;">Courses</span>
         </h2>
@@ -1120,9 +1196,11 @@
 
             <!-- Heading -->
             <div class="heading-block reveal" style="animation-delay:.05s">
-                <p class="eyebrow"><span></span>Programmes Offered<span></span></p>
-                <h2 class=" fw-bold  main-title">S-VYASA University University <span style="color:#690404;">UG</span>
-                    Courses</h2>
+                <p class="eyebrow" style="font-size:24px; font-weight: 700;">
+                    <span></span>Programmes Offered<span></span>
+                </p>
+                <!-- <h2 class=" fw-bold  main-title" style="font-size: 40px;">S-VYASA University University <span style="color:#690404;">UG</span>
+                    Courses</h2> -->
             </div>
 
             <!-- UNDERGRADUATE -->
@@ -1326,7 +1404,7 @@
                         <div>
                             <span class="badge">MBA</span>
                             <p class="card-title">Master of Business Administration (MBA) in Logistics & Supply Chain
-                                Management (IBM)</p>
+                                Management</p>
                         </div>
                     </div>
                     <p class="text-sm text-black">This postgraduate programme is designed to provide an in-depth
@@ -1420,18 +1498,19 @@
                 </div>
 
             </div><!-- /PG grid -->
-            <p class="mx-auto text-dark text-center" style="max-width: 1400px; font-size: 16px; line-height:1.4;">
-                S-VYASA Deemed-to-be University, Thiruvananthapuram, stands out as one of India’s top universities
-                because
-                of its holistic approach to student development. Its courses are crafted to foster academic growth among
-                the
-                youth, encouraging them to transcend limits and embrace both innovation and tradition. This philosophy
-                has
-                empowered S-VYASA University, Thiruvananthapuram, to offer excellent undergraduate and postgraduate
-                programs.
-            </p>
+
         </div><!-- /container -->
     </section>
+    <p class="mx-auto mt-4 text-dark text-center" style="max-width: 1200px; font-size: 18px; line-height:1.4;">
+        S-VYASA Deemed-to-be University, Thiruvananthapuram, stands out as one of India’s top universities
+        because
+        of its holistic approach to student development. Its courses are crafted to foster academic growth among
+        the
+        youth, encouraging them to transcend limits and embrace both innovation and tradition. This philosophy
+        has
+        empowered S-VYASA University, Thiruvananthapuram, to offer excellent undergraduate and postgraduate
+        programs.
+    </p>
 
     <script>
         // Scroll reveal for headings/dividers
@@ -1620,14 +1699,17 @@
 
         /* CTA Banner */
         .placements-brochure-banner {
+            width: 800px;
+            margin: 4rem auto 0;
+            /* center horizontally */
+
             background: linear-gradient(135deg, #690404 0%, #2d2d5e 100%);
             border-radius: 1.5rem;
-            padding: 2.5rem;
-            margin-top: 4rem;
-            /* box-shadow: 0 10px 40px rgba(105, 4, 4, 0.2); */
+            padding: 1.5rem;
             position: relative;
             overflow: hidden;
         }
+
 
         .placements-brochure-banner::before {
             content: '';
@@ -1658,7 +1740,7 @@
             background: white;
             color: #690404;
             font-weight: 700;
-            padding: 0.875rem 2rem;
+            padding: 0.675rem 1rem;
             border-radius: 0.75rem;
             border: none;
             cursor: pointer;
@@ -1716,26 +1798,10 @@
     </style>
 
     <section class="py-5 position-relative overflow-hidden">
-
         <div class="container text-center">
 
-
-            <!-- <p class="text-muted mb-2 small fw-semibold" style="letter-spacing:2px;">
-                PARTNERSHIPS
-            </p>
-
-            <h2 class="fw-bold display-6 mb-3">
-                Trusted by <span style="color:#690404;">Global Leaders</span>
-            </h2>
-
-            <p class="mx-auto text-muted mb-5" style="max-width: 850px; line-height:1.7;">
-                The courses offered at S-VYASA University are strengthened by collaborations
-                with leading global organisations, providing students with industry-relevant
-                knowledge and real-world exposure.
-            </p> -->
-
             <!-- Logos -->
-            <div class="row justify-content-center g-4 align-items-center">
+            <div class="row justify-content-center  align-items-center">
 
                 <div class="col-6 col-md-3">
                     <div class="logo-card">
@@ -1768,12 +1834,12 @@
     <style>
         .logo-card {
             background: #ffffff;
-            padding: 10px 30px;
+            padding: 5px 0px;
             border-radius: 16px;
             display: flex;
             align-items: center;
             justify-content: center;
-            height: 140px;
+            height: 80px;
 
             transition: all 0.4s ease;
             position: relative;
@@ -1816,7 +1882,7 @@
 
     <!-- ===== PLACEMENTS SECTION ===== -->
     <section id="placements"
-        class="py-16 lg:py-4 relative overflow-hidden bg-gradient-to-br from-gray-50 via-white to-gray-50">
+        class="py-16 lg:py-4 relative overflow-hidden bg-gradient-to-br from-gray-50 via-white to-gray-50 mt-5">
         <!-- Decorative Elements -->
         <div
             class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-br from-red-50 to-transparent rounded-full blur-3xl opacity-30 -z-10">
@@ -1830,7 +1896,7 @@
             <div class="text-center mb-12 lg:mb-6 placements-fade-in placements-stagger-1">
 
                 <h2 class="text-4xl md:text-4xl font-bold leading-tight text-gray-900 mb-4">
-                   S-VYASA Deemed University, Trivandrum, <span class="text-[#690404]">Placements</span>
+                    S-VYASA Deemed University, Trivandrum, <span class="text-[#690404]">Placements</span>
                 </h2>
 
                 <p class="text-gray-900 text-base sm:text-lg max-w-6xl mx-auto leading-relaxed">
@@ -1844,7 +1910,7 @@
 
             <!-- Top Recruiters Title -->
             <div class="text-center mb-10 placements-fade-in placements-stagger-2">
-                <h3 class="text-2xl sm:text-3xl font-bold text-gray-900 inline-block relative">
+                <h3 class="text-2xl sm:text-2xl font-bold text-gray-900 inline-block relative">
                     Top Recruiters
                     <div
                         class="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-red-600 to-transparent rounded-full">
@@ -1931,11 +1997,11 @@
             <!-- Brochure CTA Banner -->
             <div class="placements-brochure-banner placements-fade-in placements-stagger-3">
                 <div class="relative z-10 flex flex-col sm:flex-row items-center justify-between gap-4">
-                    <div class="text-start sm:text-left">
+                    <div class="text-center sm:text-left">
                         <!-- <p class="text-white text-lg sm:text-xl font-bold mb-1">
                         Get Detailed Information
                     </p> -->
-                        <p class="text-white/90 text-2xl">
+                        <p class="text-white/100 font-bold text-[18px]">
                             Get detailed information about the S-VYASA, Thiruvanthapuram, Course Fees
                         </p>
                     </div>
@@ -2135,8 +2201,8 @@
 
 
     <!-- ===== INFRASTRUCTURE ===== -->
-    <section id="infrastructure" class="py-6 mx-3 rounded-5"
-        style="background-image:linear-gradient(rgb(255, 255, 255),white,rgb(104, 59, 59));">
+    <section id="infrastructure" class="py-6 mx-3 rounded-5 mt-4"
+        style="background-image:linear-gradient(rgb(255, 255, 255),white,rgb(213, 213, 213));">
         <div class="max-w-7xl mx-auto px-6">
             <h2 class="text-3xl md:text-4xl font-bold text-center mb-3 text-[#000] ">S-VYASA Deemed University,
                 Trivandrum, <span class="text-[#690404]">Infrastructure</span></h2>
@@ -2221,12 +2287,12 @@
 
 
 
-    <section id="why" class="py-5" style="background: linear-gradient(165deg, #ffffff, #ffffff, #4a000095);">
+    <section id="why" class="py-5" style="background: linear-gradient(165deg, #ffffff, #ffffff, #ffffff);">
         <div class="container-fluid px-lg-5">
 
             <!-- Heading -->
             <div class="mb-5">
-                <h2 class="display-6 fw-bold text-dark">
+                <h2 class="display-6 fw-bold text-dark text-center">
                     <span style="color:#690404;"> Why </span>S-VYASA University, Trivandrum
                 </h2>
             </div>
@@ -2341,6 +2407,10 @@
 
     <style>
         /* Base item */
+        .row>div:nth-child(odd) .why-item {
+            background: #fff0f0;
+        }
+
         .why-item {
             position: relative;
             background: #ffffff;
@@ -2351,13 +2421,17 @@
 
         /* Grid line feel */
         .why-item {
-            border-right: 1px solid rgba(0, 0, 0, 0.08);
-            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+            border-right: 2px solid rgba(0, 0, 0, 0.08);
+            border-bottom: 2px solid rgba(0, 0, 0, 0.08);
         }
 
         /* Number style */
         .why-number {
-            font-size: 14px;
+            font-size: 18px;
+            background-color: white;
+            border: 1px solid #69040463;
+            border-radius: 50%;
+            padding: 10px !important;
             color: #690404;
             letter-spacing: 2px;
             font-weight: 600;
@@ -2378,8 +2452,9 @@
         /* Hover interaction */
         .why-item:hover {
             transform: translateY(-8px);
-            background: #fafafa;
+            background: #fff0f0;
         }
+
 
         .why-item:hover::before {
             width: 100%;
@@ -2457,7 +2532,7 @@
                         class="group bg-white rounded-2xl p-6 border border-gray-200 transition duration-300 hover:shadow-lg">
 
                         <summary
-                            class="flex justify-between items-center cursor-pointer font-semibold text-gray-900 text-base list-none">
+                            class="flex justify-between items-center cursor-pointer font-bold text-gray-900 text-base list-none">
                             What is the S-VYASA Deemed-to-be University, Kerala, address?
 
                             <span class="text-xl transition-transform duration-300 group-open:rotate-45">
@@ -2465,7 +2540,7 @@
                             </span>
                         </summary>
 
-                        <p class="mt-4 text-gray-900 text-sm leading-relaxed">
+                        <p class="mt-4 text-gray-900 text-md leading-relaxed">
                             The Kerala campus of S-VYASA Deemed-to-be University is located at Panavoor P.O.,
                             Nedumangadu, Thiruvananthapuram, Kerala - 695568.
                         </p>
@@ -2475,7 +2550,7 @@
                         class="group bg-white rounded-2xl p-6 border border-gray-200 transition duration-300 hover:shadow-lg">
 
                         <summary
-                            class="flex justify-between items-center cursor-pointer font-semibold text-gray-900 text-base list-none">
+                            class="flex justify-between items-center cursor-pointer font-bold text-gray-900 text-base list-none">
                             What are the fees for the S-VYASA University application form?
 
                             <span class="text-xl transition-transform duration-300 group-open:rotate-45">
@@ -2483,7 +2558,7 @@
                             </span>
                         </summary>
 
-                        <p class="mt-4 text-gray-600 text-sm leading-relaxed">
+                        <p class="mt-4 text-gray-900 text-md leading-relaxed">
                             The S-VYASA University application form fee for any of the courses is Rs 1,000/-.
                         </p>
                     </details>
@@ -2492,7 +2567,7 @@
                         class="group bg-white rounded-2xl p-6 border border-gray-200 transition duration-300 hover:shadow-lg">
 
                         <summary
-                            class="flex justify-between items-center cursor-pointer font-semibold text-gray-900 text-base list-none">
+                            class="flex justify-between items-center cursor-pointer font-bold text-gray-900 text-base list-none">
                             What are the various types of S-VYASA University scholarships?
 
                             <span class="text-xl transition-transform duration-300 group-open:rotate-45">
@@ -2500,7 +2575,7 @@
                             </span>
                         </summary>
 
-                        <p class="mt-4 text-gray-600 text-sm leading-relaxed">
+                        <p class="mt-4 text-gray-900 text-md leading-relaxed">
                             S-VYASA University, Trivandrum, Kerala, offers scholarships to support students who require
                             financial assistance and to make education accessible to all. These scholarships are
                             primarily offered to special students from a defence background, sports quota achievers,
@@ -2514,7 +2589,7 @@
                         class="group bg-white rounded-2xl p-6 border border-gray-200 transition duration-300 hover:shadow-lg">
 
                         <summary
-                            class="flex justify-between items-center cursor-pointer font-semibold text-gray-900 text-base list-none">
+                            class="flex justify-between items-center cursor-pointer font-bold text-gray-900 text-base list-none">
                             Does S-VYASA Uneversity, Thiruvananthapuram, offer placement?
 
                             <span class="text-xl transition-transform duration-300 group-open:rotate-45">
@@ -2522,7 +2597,7 @@
                             </span>
                         </summary>
 
-                        <p class="mt-4 text-gray-600 text-sm">
+                        <p class="mt-4 text-gray-900 text-md">
                             The S-VYASA University, Thiruvananthapuram, placement initiative is managed by the S-VYASA
                             University Placement Cell. The primary function of the placement cell is to train and assist
                             students in securing rewarding careers at some of the top MNCs, such as Google, Microsoft,
@@ -2535,7 +2610,7 @@
                         class="group bg-white rounded-2xl p-6 border border-gray-200 transition duration-300 hover:shadow-lg">
 
                         <summary
-                            class="flex justify-between items-center cursor-pointer font-semibold text-gray-900 text-base list-none">
+                            class="flex justify-between items-center cursor-pointer font-bold text-gray-900 text-base list-none">
                             What are the variour facilities available at the hostel of S-VYASA Uneversity?
 
                             <span class="text-xl transition-transform duration-300 group-open:rotate-45">
@@ -2543,7 +2618,7 @@
                             </span>
                         </summary>
 
-                        <p class="mt-4 text-gray-600 text-sm">
+                        <p class="mt-4 text-gray-900 text-md">
                             The hostel at S-VYASA University is designed to meet all the basic needs of its students.
                             This includes beds, study tables, bathroom equipment, a TV, a refrigerator, water purifiers,
                             washing machines, dining tables, first aid kits, sofas, and more.
@@ -2554,7 +2629,7 @@
                         class="group bg-white rounded-2xl p-6 border border-gray-200 transition duration-300 hover:shadow-lg">
 
                         <summary
-                            class="flex justify-between items-center cursor-pointer font-semibold text-gray-900 text-base list-none">
+                            class="flex justify-between items-center cursor-pointer font-bold text-gray-900 text-base list-none">
                             Does S-VYASA, Kerala, offer any internship opportunities?
 
                             <span class="text-xl transition-transform duration-300 group-open:rotate-45">
@@ -2562,7 +2637,7 @@
                             </span>
                         </summary>
 
-                        <p class="mt-4 text-gray-600 text-sm">
+                        <p class="mt-4 text-gray-900 text-md">
                             S-VYASA University offers internship opportunities for students pursuing engineering,
                             management and Computer Science courses.
                         </p>
@@ -2580,8 +2655,9 @@
     <section class="apply-cta-section mt-5">
         <div class="apply-cta-overlay"></div>
         <div class="relative z-10 text-center px-6 py-16">
-            <h2 class="text-3xl md:text-5xl font-bold text-white">Transform Your Future with S-VYASA
-                University,<br />Trivandrum, Kerala.</h2>
+            <h2 class="text-3xl md:text-5xl font-bold text-white " style="line-height: 4rem;"> <span
+                    style="font-size: 37px;">Transform Your Future with</span><br> S-VYASA
+                University, Trivandrum, Kerala.</h2>
             <button class="apply-cta-btn">Apply Now</button>
         </div>
     </section>
@@ -2602,21 +2678,21 @@
                     <div class="flex items-start gap-3">
                         <i class="bi bi-geo-alt-fill text-[#690404] mt-1"></i>
                         <p>
-                            Mysore Road, RV Vidyaniketan, Rajarajeshwari Nagar,
-                            Bengaluru, <br> Karnataka - 560059
+                            Panavoor P.O., Nedumangadu,
+                            Thiruvananthapuram, <br>Kerala - 695568
                         </p>
                     </div>
 
                     <!-- Email -->
                     <div class="flex items-center gap-3">
                         <i class="bi bi-envelope-fill text-[#690404]"></i>
-                        <p>svyasa.admissions@gmail.com</p>
+                        <p>svyasa.trivandrum@gmail.com</p>
                     </div>
 
                     <!-- Phone -->
                     <div class="flex items-center gap-3">
                         <i class="bi bi-telephone-fill text-[#690404]"></i>
-                        <p>+91 9900087491, +91 9845329050</p>
+                        <p>+91 9996668116, +91 9845329050</p>
                     </div>
 
                 </div>
