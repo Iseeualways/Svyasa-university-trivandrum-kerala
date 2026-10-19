@@ -413,18 +413,21 @@
              focus:outline-none focus:ring-2 focus:ring-white/40 transition" />
 
                     <div class="flex gap-4">
-                        <select id="courseSelect" class="w-1/2 px-4 py-2 bg-white/80 border border-white/20 rounded-lg text-sm text-black
-        focus:outline-none focus:ring-2 focus:ring-white/40 transition">
-                            <option value="" disabled selected>Course</option>
-                            <option value="btech">B.Tech</option>
-                            <option value="bba">BBA</option>
-                            <option value="bca">BCA</option>
-                            <option value="bpes">Bachelor of Physical Education and Sports (BPES)</option>
-                            <option value="mba">MBA (Dual Specialisation)</option>
-                            <option value="mba-logistics">MBA in Logistics & Supply Chain Management (IBM)</option>
-                            <option value="mca">MCA</option>
-                            <option value="mpes">Master of Physical Education and Sports (MPES)</option>
-                        </select>
+                        
+<select id="courseSelect" class="w-1/2 px-4 py-2 bg-white/80 border border-white/20 rounded-lg text-sm text-black focus:outline-none focus:ring-2 focus:ring-white/40 transition">
+    <option value="" disabled selected>Course</option>
+    <option value="btech">B.Tech</option>
+    <option value="bba">BBA</option>
+    <option value="bca">BCA</option>
+    <option value="bcom">B.Com (Hons.) in International Accounting with ACCA-UK</option>
+    <option value="bpes">Bachelor of Physical Education and Sports (BPES)</option>
+    <option value="bsc-yoga">B.Sc in Yoga Therapy</option>
+    <option value="mba-dual">MBA (Dual Specialisation Programmes)</option>
+    <option value="mba">MBA</option>
+    <option value="mca">MCA</option>
+    <option value="msc-yoga">M.Sc in Yoga Therapy</option>
+</select>
+
 
                         <select id="specializationSelect" class="w-1/2 px-4 py-2 bg-white/80 border border-white/20 rounded-lg text-sm text-black
         focus:outline-none focus:ring-2 focus:ring-white/40 transition" disabled>
@@ -444,66 +447,94 @@
             </div>
         </div>
 
-        <script>
-            const specializationData = {
-                'btech': [
-                    'Computer Science Engineering (CSE)',
-                    'AI & ML (IBM)',
-                    'AIML (Add on Robotics - iHUB)',
-                    'Electronics & Communication Engineering'
-                ],
-                'bba': [
-                    'Aviation, Logistics & Supply Chain Management',
-                    'Logistics, Port & Supply Chain Management',
-                    'AI, Digital Marketing & Business Analytics'
-                ],
-                'bca': [
-                    'AI, Cyber Security and Blockchain',
-                    'AIML & Robotics (iHUB)',
-                    'Artificial Intelligence & Data Science'
-                ],
-                'bpes': [],
-                'mba': [
-                    'AI & Finance',
-                    'AI & Marketing',
-                    'AI & Business Analytics',
-                    'AI & Health Care'
-                ],
-                'mba-logistics': [],
-                'mca': [
-                    'AI, Cyber Security and Blockchain (IBM)',
-                    'AIML & Robotics (iHUB)',
-                    'Artificial Intelligence & Data Science (IBM)'
-                ],
-                'mpes': []
-            };
+        
+<script>
+    const specializationData = {
+        'btech': [
+            'Computer Science & Engineering (IBM)',
+            'Artificial Intelligence & Machine Learning (Add-on Robotics - iHUB)',
+            'Electronics & Communication Engineering (ECE) Semiconductor & AI (iHUB)'
+        ],
 
-            const courseSelect = document.getElementById('courseSelect');
-            const specializationSelect = document.getElementById('specializationSelect');
+        'bba': [
+            'Aviation, Logistics & Supply Chain Management',
+            'Logistics, Port & Supply Chain Management',
+            'AI, Digital Marketing & Business Analytics',
+            'Hospital Administration'
+        ],
 
-            courseSelect.addEventListener('change', function () {
-                const selectedCourse = this.value;
-                const specializations = specializationData[selectedCourse];
+        'bca': [
+            'AI, Cyber Security and Blockchain',
+            'Artificial Intelligence, Machine Learning & Robotics (iHUB)',
+            'Artificial Intelligence & Data Science'
+        ],
 
-                // Clear previous options
-                specializationSelect.innerHTML = '<option value="" disabled selected>Select Specialization</option>';
+        'bcom': [],
+        'bpes': [],
+        'bsc-yoga': [],
 
-                if (specializations && specializations.length > 0) {
-                    // Enable and populate specialization dropdown
-                    specializationSelect.disabled = false;
-                    specializations.forEach(spec => {
-                        const option = document.createElement('option');
-                        option.value = spec;
-                        option.textContent = spec;
-                        specializationSelect.appendChild(option);
-                    });
-                } else {
-                    // Disable if no specializations
-                    specializationSelect.disabled = true;
-                    specializationSelect.innerHTML = '<option value="" disabled selected>No Specialization Required</option>';
-                }
+        'mba-dual': [
+            'Finance',
+            'Artificial Intelligence (AI)',
+            'Human Resources',
+            'Marketing',
+            'International Business',
+            'Business Analytics'
+        ],
+
+        'mba': [
+            'Logistics, Port & Supply Chain Management (IBM)',
+            'Hospital Administration & Medical Tourism',
+            'AI, Digital Marketing & Business Analytics'
+        ],
+
+        'mca': [
+            'AI, Cyber Security and Ethical Hacking (IBM)',
+            'Artificial Intelligence, Machine Learning & Robotics (iHUB)',
+            'Artificial Intelligence & Data Science (IBM)'
+        ],
+
+        'msc-yoga': []
+    };
+
+    const courseSelect = document.getElementById('courseSelect');
+    const specializationSelect = document.getElementById('specializationSelect');
+
+    courseSelect.addEventListener('change', function () {
+        const selectedCourse = this.value;
+        const specializations = specializationData[selectedCourse] || [];
+
+        specializationSelect.innerHTML = '';
+
+        if (specializations.length > 0) {
+            specializationSelect.disabled = false;
+
+            const placeholder = document.createElement('option');
+            placeholder.value = '';
+            placeholder.disabled = true;
+            placeholder.selected = true;
+            placeholder.textContent = 'Specialization';
+
+            specializationSelect.appendChild(placeholder);
+
+            specializations.forEach(function (spec) {
+                const option = document.createElement('option');
+                option.value = spec;
+                option.textContent = spec;
+                specializationSelect.appendChild(option);
             });
-        </script>
+        } else {
+            specializationSelect.disabled = true;
+
+            const option = document.createElement('option');
+            option.value = '';
+            option.textContent = 'No Specialization Required';
+
+            specializationSelect.appendChild(option);
+        }
+    });
+</script>
+
     </section>
 
     <section id="about" class="py-10 ">
@@ -556,7 +587,7 @@
                         <div class="group bg-white p-6 flex flex-col items-center text-center 
                       shadow-sm hover:shadow-xl transition duration-300">
 
-                            <img src="https://kerlastudy-frontend.vercel.app/_next/image?url=%2Fassets%2FSvyasaUniversityAssets%2FNAAC.webp&w=256&q=75"
+                            <img src="https://keralastudy.com/_next/image?url=%2Fassets%2FSvyasaUniversityAssetsAlt%2FNAAC.webp&w=96&q=75"
                                 class="h-24 mb-4 object-contain transition duration-300 group-hover:scale-110" />
 
                             <p class="font-semibold text-gray-800">
@@ -568,7 +599,7 @@
                         <div class="group bg-white p-6 flex flex-col items-center text-center 
                       shadow-sm hover:shadow-xl transition duration-300">
 
-                            <img src="https://kerlastudy-frontend.vercel.app/_next/image?url=%2Fassets%2FSvyasaUniversityAssets%2FAICTE%2520Logo.png&w=256&q=75"
+                            <img src="https://keralastudy.com/_next/image?url=%2Fassets%2FSvyasaUniversityAssetsAlt%2FAICTE%20Logo.png&w=96&q=75"
                                 class="h-24 mb-4 object-contain transition duration-300 group-hover:scale-110" />
 
                             <p class="font-semibold text-gray-800">
@@ -580,7 +611,7 @@
                         <div class="group bg-white p-6 flex flex-col items-center text-center 
                       shadow-sm hover:shadow-xl transition duration-300">
 
-                            <img src="https://kerlastudy-frontend.vercel.app/_next/image?url=%2Fassets%2FSvyasaUniversityAssets%2FUGC%2520Logo.png&w=256&q=75"
+                            <img src="https://keralastudy.com/_next/image?url=%2Fassets%2FSvyasaUniversityAssetsAlt%2FUGC%20Logo.png&w=96&q=75"
                                 class="h-24 mb-4 object-contain transition duration-300 group-hover:scale-110" />
 
                             <p class="font-semibold text-gray-800">
@@ -592,7 +623,7 @@
                         <div class="group bg-white p-6 flex flex-col items-center text-center 
                       shadow-sm hover:shadow-xl transition duration-300">
 
-                            <img src="https://kerlastudy-frontend.vercel.app/_next/image?url=%2Fassets%2FSvyasaUniversityAssets%2FDSIR.webp&w=256&q=75"
+                            <img src="https://keralastudy.com/_next/image?url=%2Fassets%2FSvyasaUniversityAssetsAlt%2FDSIR.webp&w=96&q=75"
                                 class="h-24 mb-4 object-contain transition duration-300 group-hover:scale-110" />
 
                             <p class="font-semibold text-gray-800">
@@ -1230,10 +1261,9 @@
 
                     <ul class="spec-list">
                         <h4 class="text-lg text-black font-bold">Specialisations</h4>
-                        <li><span class="dot"></span>Computer Science & Engineering (CSE)</li>
-                        <li><span class="dot"></span>AI & ML (IBM)</li>
-                        <li><span class="dot"></span>AIML (Add on Robotics - iHUB) </li>
-                        <li><span class="dot"></span>Electronics & Communication Engineering (iHUB)</li>
+                        <li><span class="dot"></span>Computer Science & Engineering (IBM)</li>
+                        <li><span class="dot"></span>Artificial Intelligence &amp; Machine Learning (Add-on Robotics - iHUB)</li>
+                        <li><span class="dot"></span>Electronics &amp; Communication Engineering (ECE) Semiconductor &amp; AI (iHUB)</li>
                     </ul>
                     <div class="card-foot">
                         <span class="dur">
@@ -1268,6 +1298,7 @@
                         <li><span class="dot"></span>Aviation, Logistics & Supply Chain Management </li>
                         <li><span class="dot"></span>Logistics, Port & Supply Chain Management </li>
                         <li><span class="dot"></span>AI, Digital Marketing & Business Analytics </li>
+                          <li><span class="dot"></span>Hospital Administration</li>
                     </ul>
                     <div class="card-foot">
                         <span class="dur">
@@ -1301,7 +1332,7 @@
                     <ul class="spec-list">
                         <h4 class="text-lg text-black font-bold">Specialisations</h4>
                         <li><span class="dot"></span>AI, Cyber Security and Blockchain </li>
-                        <li><span class="dot"></span>AIML & Robotics</li>
+                        <li><span class="dot"></span>Artificial Intelligence, Machine Learning & Robotics (iHUB)</li>
                         <li><span class="dot"></span>Artificial Intelligence & Data Science </li>
                     </ul>
                     <div class="card-foot">
@@ -1317,8 +1348,33 @@
                 </div>
 
 
-                <!-- B.Com -->
+                <!-- B.Com Hons. -->
                 <div class="card" style="transition-delay:.2s">
+                    <div class="card-top">
+                        <div class="icon-box">
+                            <img src="clg-logo/Bachelor of Commerce.svg" alt="" />
+                        </div>
+                        <div>
+                            <span class="badge">B.Com Hons.</span>
+                            <p class="card-title">Bachelor of Commerce (B.Com Hons.) in International Accounting with ACCA UK</p>
+                        </div>
+                    </div>
+                    <p class="text-sm text-black">This undergraduate programme focuses on accounting, finance, taxation, auditing, and international accounting standards. It is designed to provide a comprehensive understanding of financial reporting, global accounting practices, and business operations, preparing students for careers in accounting, auditing, taxation, and financial analysis.
+                    </p>
+                    <div class="card-foot">
+                        <span class="dur">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <circle cx="12" cy="12" r="9" stroke-width="1.5" />
+                                <path d="M12 7v5l3 2" stroke-width="1.5" stroke-linecap="round" />
+                            </svg>
+                            3 years
+                        </span>
+                        <a href="#apply" class="apply-btn">Apply Now →</a>
+                    </div>
+                </div>
+
+                <!-- BPES -->
+                <div class="card" style="transition-delay:.25s">
                     <div class="card-top">
                         <div class="icon-box">
                             <img src="clg-logo/Bachelor of Commerce.svg" alt="" />
@@ -1328,12 +1384,7 @@
                             <p class="card-title">Bachelor of Physical Education and Sports</p>
                         </div>
                     </div>
-                    <p class="text-sm text-black">This undergraduate programme focuses on the principles of physical
-                        education, sports science, fitness, and overall well-being. It is designed to provide a
-                        comprehensive understanding of physical activity, training methods, and the role of sports in
-                        promoting a healthy and active lifestyle.
-                    </p>
-
+                    <p class="text-sm text-black">This undergraduate programme focuses on the principles of physical education, sports science, fitness, and overall well-being. It is designed to provide a comprehensive understanding of physical activity, training methods, and the role of sports in promoting a healthy and active lifestyle.</p>
                     <div class="card-foot">
                         <span class="dur">
                             <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -1342,7 +1393,31 @@
                             </svg>
                             3 years
                         </span>
-                        <a href="#apply" class="apply-btn">Apply →</a>
+                        <a href="#apply" class="apply-btn">Apply Now →</a>
+                    </div>
+                </div>
+
+                <!-- B.Sc Yoga Therapy -->
+                <div class="card" style="transition-delay:.3s">
+                    <div class="card-top">
+                        <div class="icon-box">
+                            <img src="clg-logo/Bachelor of Physical Education.svg" alt="" />
+                        </div>
+                        <div>
+                            <span class="badge">B.Sc</span>
+                            <p class="card-title">Bachelor of Science (B.Sc) in Yoga Therapy</p>
+                        </div>
+                    </div>
+                    <p class="text-sm text-black">This undergraduate programme focuses on yoga practices, therapeutic techniques, and the scientific principles of health and well-being. It is designed to provide a comprehensive understanding of the therapeutic applications of yoga, preparing students to work as yoga instructors, yoga therapists, and teachers in healthcare and wellness settings.</p>
+                    <div class="card-foot">
+                        <span class="dur">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <circle cx="12" cy="12" r="9" stroke-width="1.5" />
+                                <path d="M12 7v5l3 2" stroke-width="1.5" stroke-linecap="round" />
+                            </svg>
+                            3 years
+                        </span>
+                        <a href="#apply" class="apply-btn">Apply Now →</a>
                     </div>
                 </div>
             </div>
@@ -1355,33 +1430,26 @@
 
             <div class="grid">
 
-                <!-- MBA Pro -->
+                <!-- MBA Dual Specialisation -->
                 <div class="card" style="transition-delay:.05s">
                     <div class="card-top">
                         <div class="icon-box">
                             <img src="clg-logo/Master of Business Administration.svg" alt="" />
                         </div>
                         <div>
-                            <span class="badge">MBA Dual</span>
-                            <p class="card-title">Master of Business Administration (MBA) – Dual Specialisation</p>
+                            <span class="badge">MBA</span>
+                            <p class="card-title">Master of Business Administration (MBA) – Dual Specialisation Programmes</p>
                         </div>
                     </div>
-                    <p class="text-sm text-black">This postgraduate programme is designed to provide an in-depth
-                        understanding of business management, covering key areas such as strategy, leadership, finance,
-                        marketing, and operations. It focuses on building a strong foundation in managerial concepts
-                        while encouraging critical thinking and informed decision-making in a dynamic business
-                        environment. A distinctive feature of the programme is the dual specialisation pathway, where
-                        students can choose any two specialisations in the later stages of the course, allowing for a
-                        more flexible and personalized learning experience. Delivered in collaboration with iHUB and
-                        IBM, the programme integrates contemporary business practices with emerging technologies,
-                        ensuring a forward-looking approach to management education.
-
-                    </p>
+                    <p class="text-sm text-black">Choose any two specialisations in Semesters 3 and 4 in partnership with iHUB and IBM. This postgraduate programme provides an in-depth understanding of business management, covering strategy, leadership, finance, marketing, and operations. It builds managerial knowledge, critical thinking, and informed decision-making in a dynamic business environment while utilising artificial intelligence.</p>
                     <ul class="spec-list">
                         <h4 class="text-lg text-black font-bold">Specialisations</h4>
-                        <li><span class="dot"></span>AI, Cyber Security and Blockchain</li>
-                        <li><span class="dot"></span>AIML & Robotics (iHUB)</li>
-                        <li><span class="dot"></span>Artificial Intelligence & Data Science</li>
+                        <li><span class="dot"></span>Finance</li>
+                        <li><span class="dot"></span>Artificial Intelligence (AI)</li>
+                        <li><span class="dot"></span>Human Resources</li>
+                        <li><span class="dot"></span>Marketing</li>
+                        <li><span class="dot"></span>International Business</li>
+                        <li><span class="dot"></span>Business Analytics</li>
                     </ul>
                     <div class="card-foot">
                         <span class="dur">
@@ -1391,11 +1459,11 @@
                             </svg>
                             2 years
                         </span>
-                        <a href="#apply" class="apply-btn">Apply →</a>
+                        <a href="#apply" class="apply-btn">Apply Now →</a>
                     </div>
                 </div>
 
-                <!-- MBA Dual -->
+                <!-- MBA Logistics, Healthcare and Digital Business -->
                 <div class="card" style="transition-delay:.1s">
                     <div class="card-top">
                         <div class="icon-box">
@@ -1403,20 +1471,17 @@
                         </div>
                         <div>
                             <span class="badge">MBA</span>
-                            <p class="card-title">Master of Business Administration (MBA) in Logistics & Supply Chain
-                                Management</p>
+                            <p class="card-title">Master of Business Administration (MBA)</p>
                         </div>
                     </div>
-                    <p class="text-sm text-black">This postgraduate programme is designed to provide an in-depth
-                        understanding of business management, covering key areas such as strategy, leadership, finance,
-                        marketing, and operations. It focuses on building a strong foundation in managerial concepts
-                        while encouraging critical thinking and informed decision-making in a dynamic business
-                        environment. A distinctive feature of the programme is the dual specialisation pathway, where
-                        students can choose any two specialisations in the later stages of the course, allowing for a
-                        more flexible and personalized learning experience. Delivered in collaboration with iHUB and
-                        IBM, the programme integrates contemporary business practices with emerging technologies,
-                        ensuring a forward-looking approach to management education.
+                    <p class="text-sm text-black">This postgraduate programme develops management skills across logistics, healthcare, and digital business sectors. It covers procurement, inventory management, port operations, and supply chain coordination, alongside hospital administration, healthcare operations, and medical tourism services. It also explores artificial intelligence, digital marketing strategies, and business analytics, helping students understand operational challenges, market trends, and data-driven decision-making across industries.
                     </p>
+                    <ul class="spec-list">
+                        <h4 class="text-lg text-black font-bold">Specialisations</h4>
+                        <li><span class="dot"></span>Logistics, Port &amp; Supply Chain Management (IBM)</li>
+                        <li><span class="dot"></span>Hospital Administration &amp; Medical Tourism</li>
+                        <li><span class="dot"></span>AI, Digital Marketing &amp; Business Analytics</li>
+                    </ul>
                     <div class="card-foot">
                         <span class="dur">
                             <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -1425,7 +1490,7 @@
                             </svg>
                             2 years
                         </span>
-                        <a href="#apply" class="apply-btn">Apply →</a>
+                        <a href="#apply" class="apply-btn">Apply Now →</a>
                     </div>
                 </div>
 
@@ -1450,8 +1515,8 @@
                     </p>
                     <ul class="spec-list">
                         <h4 class="text-lg text-black font-bold">Specialisations</h4>
-                        <li><span class="dot"></span>AI, Cyber Security and Blockchain (IBM)</li>
-                        <li><span class="dot"></span>AIML & Robotics (iHUB)</li>
+                        <li><span class="dot"></span>AI, Cyber Security and Ethical Hacking (IBM)</li>
+                        <li><span class="dot"></span>Artificial Intelligence, Machine Learning &amp; Robotics (iHUB)</li>
                         <li><span class="dot"></span>Artificial Intelligence & Data Science (IBM)</li>
                     </ul>
                     <div class="card-foot">
@@ -1462,28 +1527,22 @@
                             </svg>
                             2 years
                         </span>
-                        <a href="#apply" class="apply-btn">Apply →</a>
+                        <a href="#apply" class="apply-btn">Apply Now →</a>
                     </div>
                 </div>
 
-                <!-- M.Sc CS -->
+                <!-- M.Sc Yoga Therapy -->
                 <div class="card" style="transition-delay:.2s">
                     <div class="card-top">
                         <div class="icon-box">
-                            <img src="clg-logo/Master of Science in Computer Science.svg" alt="" />
+                            <img src="Svyasa-university-trivandrum-kerala-main/clg-logo/yoga.png" alt="" />
                         </div>
                         <div>
-                            <span class="badge">MPES </span>
-                            <p class="card-title">Master of Physical Education and Sports</p>
+                            <span class="badge">M.Sc</span>
+                            <p class="card-title">Master of Science (M.Sc) in Yoga Therapy</p>
                         </div>
                     </div>
-                    <p class="text-sm text-black">This postgraduate programme focuses on advanced concepts in physical
-                        education, sports science, and fitness management. It is designed to deepen understanding of
-                        training methodologies, sports performance, health education, and the scientific principles that
-                        support physical activity and well-being. This course encourages the development of leadership,
-                        discipline, and a structured approach to sports and fitness, reflecting the growing importance
-                        of health and physical education in contemporary society.
-
+                    <p class="text-sm text-black">This postgraduate programme focuses on advanced yoga practices, therapeutic techniques, anatomy, physiology, and the scientific principles of yoga therapy. It provides a comprehensive understanding of how yoga can be integrated with conventional medical approaches, with practical training and research to prepare students for careers as yoga therapists in hospitals, healthcare facilities, and wellness centres.
                     </p>
                     <div class="card-foot">
                         <span class="dur">
@@ -1493,7 +1552,7 @@
                             </svg>
                             2 years
                         </span>
-                        <a href="#apply" class="apply-btn">Apply →</a>
+                        <a href="#apply" class="apply-btn">Apply Now →</a>
                     </div>
                 </div>
 
