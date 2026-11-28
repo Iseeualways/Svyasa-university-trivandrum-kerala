@@ -29,7 +29,7 @@
         }
 
         h2 {
-            font-size: 30px !important;
+            font-size: 30px;
         }
 
         /* Hero */
@@ -196,7 +196,7 @@
         .apply-cta-overlay {
             position: absolute;
             inset: 0;
-            background: linear-gradient(135deg, rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.25)), url('media/Hero_Banner.webp') center / cover no-repeat;
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.603)), url('media/Hero_Banner.webp') center / cover no-repeat;
         }
 
         .apply-cta-btn {
@@ -352,7 +352,7 @@
 <body class="bg-white">
 
     <!-- ===== NAVBAR ===== -->
-    <nav class="bg-white shadow sticky top-0 z-50">
+    <nav class="bg-white shadow sticky top-0 z-50" style="position: sticky; top: 0; z-index: 50;">
         <div class="w-full flex items-center justify-between px-4 md:px-6 lg:px-10 py-1">
             <img src="https://keralastudy.com/_next/image?url=%2Fassets%2FSvyasaUniversityAssetsAlt%2Fsvyasalogonew.webp&w=640&q=75"
                 alt="S-VYASA" class="h-10 md:h-14 w-auto" />
@@ -377,33 +377,22 @@
     <!-- ===== HERO ===== -->
     <section id="home" class="hero-section">
         <div class="hero-overlay"></div>
-        <div
-            class="relative z-10 max-w-7xl mx-auto px-6 w-full flex flex-col lg:flex-row items-center justify-center gap-12 py-6">
+        <div class="relative z-10 mx-auto w-full max-w-[1400px] px-4 sm:px-6 py-6 flex flex-col items-center justify-center gap-8 lg:flex-row lg:items-center lg:justify-between lg:gap-12">
             <!-- Left text -->
-            <div class="flex-1 text-white  lg:text-left">
-                <div class="text-3d-wrap">
-                    <h1 class="mt-4 text-3d text-[40px] md:text-5xl font-bold leading-[1.3] md:leading-[80px] mb-3">
-                        <span class="text-[40px] md:text-[70px]">S-VYASA <br></span><span
-                            class="text-[40px] md:text-[40px]">Deemed-to-be
-                            University
-                        </span>
-                    </h1>
-                </div>
-                <p class="text-lg md:text-xl font-light mb-1">Guiding Excellence in Mind, Body, &amp; Spirit through a
-                    New Venture in</p>
-                <p class="text-2xl md:text-3xl font-bold mb-5" style="color:#ffbf50;">Trivandrum, Kerala</p>
-                <p class="flex items-center gap-3 text-base md:text-lg font-semibold text-white mb-1">
-                    <span class="flex items-center justify-center">
-                        <i class="bi bi-arrow-up-right-circle text-white text-lg"></i>
-                    </span>
-                    Get started with the S-VYASA University
+            <div class="flex-1 max-w-2xl text-start lg:text-left text-white">
+                <h1
+                    class="text-[28px] text-3xl sm:text-4xl md:text-5xl lg:text-[48px] font-semibold leading-tight lg:leading-[1.18] mb-4">
+                    Step Into Your Brightest Future with a World-Class Campus and Limitless Opportunities
+                </h1>
+                <p class="text-base sm:text-lg md:text-xl font-light leading-relaxed mb-5">
+                    Where Every Dream Meets Excellence: S-VYASA Thiruvananthapuram, a New Venture in Kerala
                 </p>
-
-                <p class="flex items-center gap-3 text-base md:text-lg font-semibold text-white">
+                <p
+                    class="flex items-center justify-center lg:justify-start gap-3 text-lg md:text-xl font-bold text-white">
                     <span class="flex items-center justify-center">
-                        <i class="bi bi-arrow-up-right-circle text-white text-lg"></i>
+                        <i class="bi bi-arrow-up-right-circle text-lg md:text-xl" style="color:#ffbf50;"></i>
                     </span>
-                    Admissions 2027-28 Right Away
+                    <span style="color:#ffbf50;">Admissions 2027-28 Right Away</span>
                 </p>
             </div>
 
@@ -662,18 +651,14 @@
                     <!-- Paragraph -->
                     <p class="mt-6 text-gray-900 text-md leading-relaxed">
                         Swami Vivekananda Yoga Anusandhana Samsthana, popularly known as S-VYASA University, is a
-                        UGC-approved Deemed-to-be University. As part of its ongoing efforts to achieve comprehensive
-                        growth across various domains of academics and co-curricular activities, the university has
-                        established a new campus in the Evergreen City of India, i.e., Thiruvananthapuram, Kerala.
+                        UGC-approved Deemed-to-be University. As part of its commitment to academic excellence and
+                        holistic development, the university has established a new campus in Thiruvananthapuram, Kerala,
+                        popularly known as the S-VYASA Deemed-to-be University Trivandrum campus. Located in the
+                        Evergreen City of India, this expansion aims to extend the university's academic vision beyond
+                        geographical boundaries. Through a unique blend of traditional knowledge and modern teaching
+                        methodologies, the university strives to nurture students into skilled professionals and future
+                        leaders.
                     </p>
-
-                    <p class="mt-4 text-gray-900 text-md leading-relaxed">
-                        The primary goal of this expansion is to extend the university's objective of achieving academic
-                        excellence beyond geographical boundaries. Moreover, through a distinctive blend of traditional
-                        learning and the modern methods of pedagogy, the university aims to nurture aspirants into ideal
-                        leaders of the future.
-                    </p>
-
                 </div>
 
                 <!-- RIGHT SIDE (CARDS) -->
@@ -1171,6 +1156,12 @@
             line-height: 1.3;
         }
 
+        @media (max-width: 767px) {
+            .card-title {
+                font-size: 24px !important;
+            }
+        }
+
         .card-sub {
             font-size: 14px;
             color: var(--text2);
@@ -1444,7 +1435,7 @@
         #courses .hz-side .card-title {
             margin: 0;
             color: #fff;
-            font-size: 28px;
+            font-size: 34px;
             font-weight: 600;
             line-height: 1.45;
             letter-spacing: -.45px;
@@ -1496,7 +1487,7 @@
             border-radius: 9px;
             background: #fff;
             color: #690404;
-            font-size: 13px;
+            font-size: 15px;
             font-weight: 700;
             text-decoration: none;
             transition: .25s ease;
@@ -1809,12 +1800,12 @@
                         geiep: []
                     },
                     {
-                        cta: 'Apply Now →', key: 'mba-ey', badge: 'MBA AI & Fintech', title: 'Master of Business Administration (MBA) in AI & Fintech with EY', years: '2 years',
+                        half: true, cta: 'Apply Now →', key: 'mba-ey', badge: 'MBA AI & Fintech', title: 'Master of Business Administration (MBA) in AI & Fintech with EY', years: '2 years',
                         desc: 'This postgraduate programme combines core business management principles with emerging technologies in Artificial Intelligence and Financial Technology. It is designed to develop students’ understanding of financial markets, digital banking, fintech innovations, data-driven decision-making and AI-powered business solutions. With industry-oriented learning and exposure to evolving financial technologies, the programme aims to prepare graduates for leadership and specialist roles across banking, financial services, fintech and technology-driven business sectors.',
                         specs: [], geiep: []
                     },
                     {
-                        cta: 'Apply Now →', key: 'mha', badge: 'MHA', title: 'Master of Hospital Administration (MHA)', years: '2 years',
+                        half: true, cta: 'Apply Now →', key: 'mha', badge: 'MHA', title: 'Master of Hospital Administration (MHA)', years: '2 years',
                         desc: 'This postgraduate programme focuses on hospital management, healthcare administration, strategic planning, hospital operations and healthcare service delivery. It is designed to develop students’ understanding of healthcare systems, hospital administration, financial management, patient care coordination and quality standards, preparing them for managerial and leadership roles in hospitals, healthcare organisations, medical institutions and related sectors.',
                         specs: [], geiep: []
                     }
@@ -2063,9 +2054,10 @@
 
         /* CTA Banner */
         .placements-brochure-banner {
-            width: 800px;
+            width: 100%;
+            max-width: 800px;
             margin: 4rem auto 0;
-            /* center horizontally */
+            box-sizing: border-box;
 
             background: linear-gradient(135deg, #690404 0%, #2d2d5e 100%);
             border-radius: 1.5rem;
@@ -2161,206 +2153,207 @@
         }
     </style>
 
-    <section class="py-5 position-relative overflow-hidden" aria-label="Partner companies">
-        <div class="container text-center">
-            <div class="logo-carousel">
-                <button class="logo-carousel-arrow logo-carousel-prev" type="button" aria-label="Previous logos">
-                    &#8249;
-                </button>
+   <section class="py-5 position-relative overflow-hidden" aria-label="Partner companies">
+    <div class="container text-center">
+        <div class="logo-carousel">
+            <button class="logo-carousel-arrow logo-carousel-prev" type="button" aria-label="Previous logos">&#8249;</button>
+
+            <div class="logo-carousel-viewport">
                 <div class="logo-carousel-track" id="logoCarouselTrack">
-                    <div class="logo-carousel-slide">
-                        <div class="logo-card">
-                            <img src="LEARNING AND CERTIFICATIONS FROM PARTNERS/LCP_01.webp" alt="TCS">
-                        </div>
-                    </div>
-                    <div class="logo-carousel-slide">
-                        <div class="logo-card">
-                            <img src="LEARNING AND CERTIFICATIONS FROM PARTNERS/LCP_02.webp" alt="HP">
-                        </div>
-                    </div>
-                    <div class="logo-carousel-slide">
-                        <div class="logo-card">
-                            <img src="LEARNING AND CERTIFICATIONS FROM PARTNERS/LCP_03.webp" alt="Microsoft">
-                        </div>
-                    </div>
-                    <div class="logo-carousel-slide">
-                        <div class="logo-card">
-                            <img src="LEARNING AND CERTIFICATIONS FROM PARTNERS/LCP_04.webp" alt="IBM">
-                        </div>
-                    </div>
-                    <div class="logo-carousel-slide">
-                        <div class="logo-card">
-                            <img src="LEARNING AND CERTIFICATIONS FROM PARTNERS/LCP_05.webp" alt="TCS">
-                        </div>
-                    </div>
-                    <div class="logo-carousel-slide">
-                        <div class="logo-card">
-                            <img src="LEARNING AND CERTIFICATIONS FROM PARTNERS/LCP_06.webp" alt="HP">
-                        </div>
-                    </div>
-                    <div class="logo-carousel-slide">
-                        <div class="logo-card">
-                            <img src="LEARNING AND CERTIFICATIONS FROM PARTNERS/LCP_07.webp" alt="Microsoft">
-                        </div>
-                    </div>
-                    <div class="logo-carousel-slide">
-                        <div class="logo-card">
-                            <img src="LEARNING AND CERTIFICATIONS FROM PARTNERS/LCP_08.webp" alt="IBM">
-                        </div>
-                    </div>
-                    <div class="logo-carousel-slide">
-                        <div class="logo-card">
-                            <img src="LEARNING AND CERTIFICATIONS FROM PARTNERS/LCP_09.webp" alt="TCS">
-                        </div>
-                    </div>
-                    <div class="logo-carousel-slide">
-                        <div class="logo-card">
-                            <img src="LEARNING AND CERTIFICATIONS FROM PARTNERS/LCP_10.webp" alt="HP">
-                        </div>
-                    </div>
-                    <div class="logo-carousel-slide">
-                        <div class="logo-card">
-                            <img src="LEARNING AND CERTIFICATIONS FROM PARTNERS/LCP_11.webp" alt="Microsoft">
-                        </div>
-                    </div>
+                    <div class="logo-carousel-slide"><div class="logo-card"><img src="LEARNING AND CERTIFICATIONS FROM PARTNERS/LCP_01.webp" alt="TCS"></div></div>
+                    <div class="logo-carousel-slide"><div class="logo-card"><img src="LEARNING AND CERTIFICATIONS FROM PARTNERS/LCP_02.webp" alt="HP"></div></div>
+                    <div class="logo-carousel-slide"><div class="logo-card"><img src="LEARNING AND CERTIFICATIONS FROM PARTNERS/LCP_03.webp" alt="Microsoft"></div></div>
+                    <div class="logo-carousel-slide"><div class="logo-card"><img src="LEARNING AND CERTIFICATIONS FROM PARTNERS/LCP_04.webp" alt="IBM"></div></div>
+                    <div class="logo-carousel-slide"><div class="logo-card"><img src="LEARNING AND CERTIFICATIONS FROM PARTNERS/LCP_05.webp" alt="TCS"></div></div>
+                    <div class="logo-carousel-slide"><div class="logo-card"><img src="LEARNING AND CERTIFICATIONS FROM PARTNERS/LCP_06.webp" alt="HP"></div></div>
+                    <div class="logo-carousel-slide"><div class="logo-card"><img src="LEARNING AND CERTIFICATIONS FROM PARTNERS/LCP_07.webp" alt="Microsoft"></div></div>
+                    <div class="logo-carousel-slide"><div class="logo-card"><img src="LEARNING AND CERTIFICATIONS FROM PARTNERS/LCP_08.webp" alt="IBM"></div></div>
+                    <div class="logo-carousel-slide"><div class="logo-card"><img src="LEARNING AND CERTIFICATIONS FROM PARTNERS/LCP_09.webp" alt="TCS"></div></div>
+                    <div class="logo-carousel-slide"><div class="logo-card"><img src="LEARNING AND CERTIFICATIONS FROM PARTNERS/LCP_10.webp" alt="HP"></div></div>
+                    <div class="logo-carousel-slide"><div class="logo-card"><img src="LEARNING AND CERTIFICATIONS FROM PARTNERS/LCP_11.webp" alt="Microsoft"></div></div>
                 </div>
-                <button class="logo-carousel-arrow logo-carousel-next" type="button" aria-label="Next logos">
-                    &#8250;
-                </button>
             </div>
+
+            <button class="logo-carousel-arrow logo-carousel-next" type="button" aria-label="Next logos">&#8250;</button>
         </div>
-    </section>
-    <style>
-        .logo-carousel {
-            position: relative;
-            padding: 0 48px;
-        }
+    </div>
+</section>
 
-        .logo-carousel-track {
-            display: flex;
-            overflow-x: auto;
-            scroll-behavior: smooth;
-            scroll-snap-type: x mandatory;
-            scrollbar-width: none;
-        }
+<style>
+    .logo-carousel {
+        position: relative;
+        padding: 0 48px;
+    }
 
-        .logo-carousel-track::-webkit-scrollbar {
-            display: none;
-        }
+    .logo-carousel-viewport {
+        overflow: hidden;
+    }
 
+    .logo-carousel-track {
+        display: flex;
+        will-change: transform;
+    }
+
+    .logo-carousel-slide {
+        flex: 0 0 16.6667%;
+        box-sizing: border-box;
+        padding: 0 12px;
+    }
+
+    .logo-carousel-arrow {
+        position: absolute;
+        top: 50%;
+        z-index: 2;
+        width: 40px;
+        height: 40px;
+        border: 0;
+        border-radius: 50%;
+        background: #690404;
+        color: #fff;
+        font-size: 30px;
+        line-height: 1;
+        cursor: pointer;
+        transform: translateY(-50%);
+        transition: background 0.2s ease;
+    }
+
+    .logo-carousel-arrow:hover {
+        background: #4d0303;
+    }
+
+    .logo-carousel-prev { left: 0; }
+    .logo-carousel-next { right: 0; }
+
+    .logo-card {
+        background: #ffffff;
+        padding: 5px 0;
+        border-radius: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 80px;
+        overflow: hidden;
+    }
+
+    .logo-card img {
+        max-width: 100%;
+        max-height: 75px;
+        object-fit: contain;
+    }
+
+    @media (max-width: 767.98px) {
         .logo-carousel-slide {
-            flex: 0 0 16.6667%;
-            padding: 0 12px;
-            scroll-snap-align: start;
+            flex-basis: 50%;
+        }
+
+        .logo-carousel {
+            padding: 0 38px;
         }
 
         .logo-carousel-arrow {
-            position: absolute;
-            top: 50%;
-            z-index: 2;
-            width: 40px;
-            height: 40px;
-            border: 0;
-            border-radius: 50%;
-            background: #690404;
-            color: #fff;
-            font-size: 30px;
-            line-height: 1;
-            cursor: pointer;
-            transform: translateY(-50%);
-            transition: background 0.2s ease;
+            width: 34px;
+            height: 34px;
+            font-size: 26px;
         }
+    }
+</style>
 
-        .logo-carousel-arrow:hover {
-            background: #4d0303;
-        }
+<script>
+    (() => {
+        const track = document.getElementById('logoCarouselTrack');
+        const carousel = track?.closest('.logo-carousel');
+        if (!track || !carousel) return;
 
-        .logo-carousel-prev {
-            left: 0;
-        }
+        const realSlides = Array.from(track.children);
+        const total = realSlides.length;
+        if (!total) return;
 
-        .logo-carousel-next {
-            right: 0;
-        }
+        const DURATION = 500;   // slide animation (ms)
+        const INTERVAL = 3000;  // autoplay delay (ms)
+        const mq = window.matchMedia('(max-width: 767.98px)');
 
-        .logo-card {
-            background: #ffffff;
-            padding: 5px 0;
-            border-radius: 16px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 80px;
-            transition: all 0.4s ease;
-            position: relative;
-            overflow: hidden;
-        }
+        let perView = 6;
+        let index = 0;
+        let busy = false;
+        let settleTimer = null;
+        let autoplay = null;
 
-        .logo-card img {
-            max-width: 100%;
-            max-height: 75px;
-            object-fit: contain;
-            transition: 0.4s ease;
-        }
+        const setPosition = (animate) => {
+            track.style.transition = animate ? `transform ${DURATION}ms ease` : 'none';
+            track.style.transform = `translateX(${-index * realSlides[0].offsetWidth}px)`;
+            if (!animate) void track.offsetWidth; // flush so the jump is instant
+        };
 
-        .logo-card:hover::before {
-            opacity: 1;
-        }
-
-        @media (max-width: 767.98px) {
-            .logo-carousel-slide {
-                flex-basis: 50%;
-            }
-
-            .logo-carousel {
-                padding: 0 38px;
-            }
-
-            .logo-carousel-arrow {
-                width: 34px;
-                height: 34px;
-                font-size: 26px;
-            }
-        }
-    </style>
-    <script>
-        (() => {
-            const track = document.getElementById('logoCarouselTrack');
-            const carousel = track?.closest('.logo-carousel');
-            if (!track || !carousel) return;
-
-            const slides = Array.from(track.querySelectorAll('.logo-carousel-slide'));
-            if (!slides.length) return;
-
-            let currentIndex = 0;
-            const goToSlide = (index) => {
-                currentIndex = (index + slides.length) % slides.length;
-                track.scrollTo({
-                    left: slides[currentIndex].offsetLeft - slides[0].offsetLeft,
-                    behavior: 'smooth'
-                });
+        // Clones at both ends make the loop seamless
+        const build = () => {
+            track.querySelectorAll('.is-clone').forEach((n) => n.remove());
+            perView = mq.matches ? 2 : 6;
+            const makeClone = (n) => {
+                const c = n.cloneNode(true);
+                c.classList.add('is-clone');
+                c.setAttribute('aria-hidden', 'true');
+                return c;
             };
+            track.prepend(...realSlides.slice(-perView).map(makeClone));
+            track.append(...realSlides.slice(0, perView).map(makeClone));
+            index = perView;
+            busy = false;
+            setPosition(false);
+        };
 
-            carousel.querySelector('.logo-carousel-prev')?.addEventListener('click', () => goToSlide(currentIndex - 1));
-            carousel.querySelector('.logo-carousel-next')?.addEventListener('click', () => goToSlide(currentIndex + 1));
+        const settle = () => {
+            clearTimeout(settleTimer);
+            if (index >= perView + total) index -= total;
+            else if (index < perView) index += total;
+            setPosition(false);
+            busy = false;
+        };
 
-            let autoplay = setInterval(() => goToSlide(currentIndex + 1), 3000);
-            carousel.addEventListener('mouseenter', () => clearInterval(autoplay));
-            carousel.addEventListener('mouseleave', () => {
-                clearInterval(autoplay);
-                autoplay = setInterval(() => goToSlide(currentIndex + 1), 3000);
-            });
+        const move = (dir) => {
+            if (busy) return;
+            busy = true;
+            index += dir;
+            setPosition(true);
+            settleTimer = setTimeout(settle, DURATION + 100); // fallback if transitionend doesn't fire
+        };
 
-            let touchStartX = 0;
-            track.addEventListener('touchstart', (event) => {
-                touchStartX = event.changedTouches[0].clientX;
-            }, { passive: true });
-            track.addEventListener('touchend', (event) => {
-                const deltaX = event.changedTouches[0].clientX - touchStartX;
-                if (Math.abs(deltaX) > 40) goToSlide(currentIndex + (deltaX < 0 ? 1 : -1));
-            }, { passive: true });
-        })();
-    </script>
+        track.addEventListener('transitionend', (e) => {
+            if (e.target === track && e.propertyName === 'transform') settle();
+        });
+
+        const startAutoplay = () => {
+            stopAutoplay();
+            autoplay = setInterval(() => move(1), INTERVAL);
+        };
+        const stopAutoplay = () => clearInterval(autoplay);
+
+        carousel.querySelector('.logo-carousel-prev')?.addEventListener('click', () => move(-1));
+        carousel.querySelector('.logo-carousel-next')?.addEventListener('click', () => move(1));
+
+        carousel.addEventListener('mouseenter', stopAutoplay);
+        carousel.addEventListener('mouseleave', startAutoplay);
+
+        let touchStartX = 0;
+        carousel.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].clientX;
+            stopAutoplay();
+        }, { passive: true });
+        carousel.addEventListener('touchend', (e) => {
+            const deltaX = e.changedTouches[0].clientX - touchStartX;
+            if (Math.abs(deltaX) > 40) move(deltaX < 0 ? 1 : -1);
+            startAutoplay();
+        }, { passive: true });
+
+        let resizeTimer;
+        window.addEventListener('resize', () => {
+            clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(build, 150);
+        });
+
+        build();
+        startAutoplay();
+    })();
+</script>
 
     <!-- ===== PLACEMENTS SECTION ===== -->
     <section id="placements"
@@ -2566,8 +2559,7 @@
                 </button>
             </div>
 
-            <!-- Progress Dots -->
-            <div class="placements-carousel-dots" id="placementsCarouselDots"></div>
+            
 
             <!-- Brochure CTA Banner -->
             <div class="placements-brochure-banner placements-fade-in placements-stagger-3">
@@ -2766,7 +2758,7 @@
 
             // Initialize
             calculateItemsPerView();
-          
+
             updateCarousel();
             startAutoplay();
         })();
@@ -2778,11 +2770,12 @@
     <!-- ===== INFRASTRUCTURE ===== -->
     <section id="infrastructure" class="py-6 mx-3 rounded-5 mt-4"
         style="background-image:linear-gradient(rgb(255, 255, 255),white,rgb(213, 213, 213));">
-        <div class="max-w-7xl mx-auto px-6">
-            <h2 class="text-[28px] md:text-[40px] font-bold text-center mb-3 text-[#000]">S-VYASA University, Trivandrum,
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-[28px] md:text-[40px] font-bold text-left md:text-center mb-3 text-[#000]">S-VYASA University,
+                Trivandrum,
                 <span class="text-[#690404]">Infrastructure</span>
             </h2>
-            <p class="text-center text-dark text-lg max-w-6xl mx-auto mb-2">S-VYASA University offers modern
+            <p class="text-left md:text-center text-dark text-lg max-w-6xl mx-auto mb-2">S-VYASA University offers modern
                 infrastructure with spacious, air-conditioned classrooms equipped with digital aids, advanced labs, and
                 specialised research facilities. The campus provides sports amenities for games like cricket,
                 basketball, and chess to promote physical fitness. Additional facilities include seminar halls, a large
@@ -2860,7 +2853,7 @@
 
                 <!-- ITEM -->
                 <div class="col-md-6 col-lg-4">
-                    <div class="why-item p-5 h-100">
+                    <div class="why-item p-4 h-100">
 
                         <span class="why-number">01</span>
 
@@ -2876,7 +2869,7 @@
 
                 <!-- ITEM -->
                 <div class="col-md-6 col-lg-4">
-                    <div class="why-item p-5 h-100">
+                    <div class="why-item p-4 h-100">
 
                         <span class="why-number">02</span>
 
@@ -2893,7 +2886,7 @@
 
                 <!-- ITEM -->
                 <div class="col-md-6 col-lg-4">
-                    <div class="why-item p-5 h-100">
+                    <div class="why-item p-4 h-100">
 
                         <span class="why-number">03</span>
 
@@ -2909,7 +2902,7 @@
                 </div>
 
                 <div class="col-md-6 col-lg-4">
-                    <div class="why-item p-5 h-100">
+                    <div class="why-item p-4 h-100">
 
                         <span class="why-number">04</span>
 
@@ -2925,7 +2918,7 @@
                 </div>
 
                 <div class="col-md-6 col-lg-4">
-                    <div class="why-item p-5 h-100">
+                    <div class="why-item p-4 h-100">
 
                         <span class="why-number">05</span>
 
@@ -2941,7 +2934,7 @@
                 </div>
 
                 <div class="col-md-6 col-lg-4">
-                    <div class="why-item p-5 h-100">
+                    <div class="why-item p-4 h-100">
 
                         <span class="why-number">06</span>
 
@@ -3063,19 +3056,18 @@
     </style>
 
     <!-- ===== FAQs ===== -->
-    <section class="py-4 bg-gradient-to-b from-white to-gray-50">
-        <div class="max-w-7xl mx-auto px-6">
+    <section id="faqs" class="py-8 sm:py-12 bg-gradient-to-b from-white to-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6">
 
-            <div class="grid lg:grid-cols-2 gap-6 items-start">
+            <div class="grid lg:grid-cols-2 gap-6 sm:gap-8 items-start">
 
                 <!-- LEFT SIDE -->
-                <div class="sticky top-24">
-                    <p class="text-sm text-[#690404] font-semibold uppercase tracking-widest">
+                <div class="lg:sticky lg:top-24">
+                    <p class="text-xs sm:text-sm text-[#690404] font-semibold uppercase tracking-widest">
                         FAQ
                     </p>
 
-                    <h2 style="font-size: 96px !important;"
-                        class="text-5xl md:text-8xl font-bold text-gray-900 leading-tight mt-4">
+                    <h2 class="text-[40px] sm:text-6xl md:text-7xl lg:text-[96px] font-bold text-gray-900 leading-[1.05] sm:leading-tight mt-3 sm:mt-4">
                         Frequently<br>
                         Asked <span class="text-[#690404]">Questions</span>
                     </h2>
@@ -3100,8 +3092,8 @@
                         </summary>
 
                         <p class="mt-4 text-gray-900 text-md leading-relaxed">
-                            The Kerala campus of S-VYASA Deemed-to-be University is located at Panavoor P.O.,
-                            Nedumangadu, Thiruvananthapuram, Kerala - 695568.
+                            The S-VYASA Thiruvananthapuram Campus of S-VYASA Deemed-to-be University is situated at
+                            Panavoor P.O., Nedumangad, Thiruvananthapuram, Kerala – 695568.
                         </p>
                     </details>
 
@@ -3110,7 +3102,7 @@
 
                         <summary
                             class="flex justify-between items-center cursor-pointer font-bold text-gray-900 text-base list-none">
-                            What are the fees for the S-VYASA University application form?
+                            What is the S-VYASA University Panavoor fee structure?
 
                             <span class="text-xl transition-transform duration-300 group-open:rotate-45">
                                 +
@@ -3118,7 +3110,9 @@
                         </summary>
 
                         <p class="mt-4 text-gray-900 text-md leading-relaxed">
-                            The S-VYASA University application form fee for any of the courses is Rs 1,000/-.
+                            The S-VYASA University Panavoor fee structure varies depending on the course, specialisation
+                            and programme level. Students can check the latest undergraduate and postgraduate fee details
+                            through the university's official admissions website.
                         </p>
                     </details>
 
@@ -3127,7 +3121,7 @@
 
                         <summary
                             class="flex justify-between items-center cursor-pointer font-bold text-gray-900 text-base list-none">
-                            What are the various types of S-VYASA University scholarships?
+                            What courses are offered at S-VYASA Trivandrum?
 
                             <span class="text-xl transition-transform duration-300 group-open:rotate-45">
                                 +
@@ -3135,11 +3129,9 @@
                         </summary>
 
                         <p class="mt-4 text-gray-900 text-md leading-relaxed">
-                            S-VYASA University, Trivandrum, Kerala, offers scholarships to support students who require
-                            financial assistance and to make education accessible to all. These scholarships are
-                            primarily offered to special students from a defence background, sports quota achievers,
-                            differently-abled students, those with siblings enrolled, single-parent families, and
-                            students ranked in national and state-level entrance exams.
+                            S-VYASA Trivandrum offers academic programmes designed to combine quality education, skill
+                            development and career-oriented learning. Students can explore the available courses and
+                            choose a programme that aligns with their career goals.
                         </p>
                     </details>
 
@@ -3149,18 +3141,18 @@
 
                         <summary
                             class="flex justify-between items-center cursor-pointer font-bold text-gray-900 text-base list-none">
-                            Does S-VYASA University, Thiruvananthapuram, offer placement?
+                            Does S-VYASA Deemed to be University Thiruvananthapuram offer placement opportunities?
 
                             <span class="text-xl transition-transform duration-300 group-open:rotate-45">
                                 +
                             </span>
                         </summary>
 
-                        <p class="mt-4 text-gray-900 text-md">
-                            The S-VYASA University, Thiruvananthapuram, placement initiative is managed by the S-VYASA
-                            University Placement Cell. The primary function of the placement cell is to train and assist
-                            students in securing rewarding careers at some of the top MNCs, such as Google, Microsoft,
-                            Amazon, Reliance Jio, and many more.
+                        <p class="mt-4 text-gray-900 text-md leading-relaxed">
+                            Yes, S-VYASA Deemed to be University Thiruvananthapuram provides placement assistance through
+                            its dedicated training and placement cell. Students receive career guidance, industry exposure,
+                            internship opportunities and placement support across various sectors, depending on their
+                            programme.
                         </p>
                     </details>
 
@@ -3170,60 +3162,41 @@
 
                         <summary
                             class="flex justify-between items-center cursor-pointer font-bold text-gray-900 text-base list-none">
-                            What are the various facilities available at the hostel of S-VYASA University?
+                            Why consider S-VYASA among the best private B.Tech colleges in Thiruvananthapuram?
 
                             <span class="text-xl transition-transform duration-300 group-open:rotate-45">
                                 +
                             </span>
                         </summary>
 
-                        <p class="mt-4 text-gray-900 text-md">
-                            The hostel at S-VYASA University is designed to meet all the basic needs of its students.
-                            This includes beds, study tables, bathroom equipment, a TV, a refrigerator, water purifiers,
-                            washing machines, dining tables, first aid kits, sofas, and more.
+                        <p class="mt-4 text-gray-900 text-md leading-relaxed">
+                            S-VYASA offers students an opportunity to pursue higher education in a supportive academic
+                            environment, making it a choice worth exploring among best private B.Tech colleges in
+                            Thiruvananthapuram.
                         </p>
                     </details>
-
-                    <details
-                        class="group bg-white rounded-2xl p-6 border border-gray-200 transition duration-300 hover:shadow-lg">
-
-                        <summary
-                            class="flex justify-between items-center cursor-pointer font-bold text-gray-900 text-base list-none">
-                            Does S-VYASA, Kerala, offer any internship opportunities?
-
-                            <span class="text-xl transition-transform duration-300 group-open:rotate-45">
-                                +
-                            </span>
-                        </summary>
-
-                        <p class="mt-4 text-gray-900 text-md">
-                            S-VYASA University offers internship opportunities for students pursuing engineering,
-                            management and Computer Science courses.
-                        </p>
-                    </details>
-
                 </div>
 
             </div>
         </div>
     </section>
 
-    <style></style>
+   
 
     <!-- ===== APPLY CTA ===== -->
     <section class="apply-cta-section mt-5">
         <div class="apply-cta-overlay"></div>
         <div class="relative z-10 text-center px-6 py-16">
-                <h2 class="text-4xl md:text-5xl font-bold text-white " style="line-height: 2rem;"> <span
-                    class="text-[28px] md:text-[48px]">Transform Your Future with</span><br> <span
-                    class="text-[28px] md:text-[48px]">S-VYASA
-                    University, Trivandrum, Kerala.</span></h2>
+            <h2 class="text-[31px] md:text-[56px] font-bold text-white leading-[1.25]">
+                Transform Your Future with<br>
+                S-VYASA University, Trivandrum, Kerala.
+            </h2>
             <button class="apply-cta-btn">Apply Now</button>
         </div>
     </section>
 
     <!-- ===== CONTACT ===== -->
-    <section class="bg-[#f1f5f9] py-6">
+    <section id="contact" class="bg-[#f1f5f9] py-6">
         <div class="max-w-7xl mx-auto px-6">
             <div class="flex flex-col md:flex-row items-center justify-between gap-6">
                 <!-- LEFT: LOGO + NAAC -->
