@@ -2086,7 +2086,7 @@
                     var d = (c.specs || c.geiep) ? { specs: c.specs || [], geiep: c.geiep || [] } : (specializationData[c.key] || { specs: [], geiep: [] });
                     var parts = [];
                     if (d.specs.length) parts.push(section('Specialisations', d.specs, false));
-                    if (d.geiep.length) parts.push(section('Global Employability', d.geiep, true));
+                    if (d.geiep.length) parts.push(section('Global Career Pathways & Industry Excellence', d.geiep, true));
                     if (!parts.length) return '';
                     return '<div class="spec-sections' + (parts.length > 1 ? ' two' : '') + '">' + parts.join('') + '</div>';
                 }
