@@ -19,9 +19,36 @@
             scroll-behavior: smooth;
         }
 
-        html,
-        body {
+        html {
             overflow-x: hidden;
+        }
+
+        body {
+            overflow-x: clip;
+        }
+
+        /* sticky-nav offset for jump links */
+        :root {
+            --nav-h: 48px;
+        }
+
+        @media (min-width: 768px) {
+            :root {
+                --nav-h: 64px;
+            }
+        }
+
+        #home,
+        #about,
+        #courses-intro,
+        #courses,
+        #placements,
+        #infrastructure,
+        #why,
+        #faqs,
+        #contact,
+        #apply {
+            scroll-margin-top: var(--nav-h);
         }
 
         body {
@@ -138,7 +165,7 @@
             padding: 10px 14px;
         }
 
-        /* Nav link */
+
         .nav-link {
             color: #1f1f1f;
             font-weight: 600;
@@ -148,6 +175,182 @@
 
         .nav-link:hover {
             color: #3f1a1a;
+        }
+
+
+        /* ===== Mobile menu ===== */
+        .site-menu {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+        }
+
+        .menu-toggle,
+        .menu-cta,
+        .nav-backdrop {
+            display: none;
+        }
+
+        .nav-link.active {
+            color: #690404;
+        }
+
+        @media (max-width: 767.98px) {
+
+            /* Hamburger -> X */
+            .menu-toggle {
+                display: inline-flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 5px;
+                width: 42px;
+                height: 42px;
+                border-radius: 10px;
+                border: 1px solid rgba(105, 4, 4, .18);
+                background: #fff;
+                cursor: pointer;
+                transition: background .2s;
+            }
+
+            .menu-toggle span {
+                display: block;
+                width: 20px;
+                height: 2px;
+                border-radius: 2px;
+                background: #690404;
+                transition: transform .3s ease, opacity .2s ease;
+            }
+
+            .menu-toggle[aria-expanded="true"] {
+                background: #fdf0ee;
+            }
+
+            .menu-toggle[aria-expanded="true"] span:nth-child(1) {
+                transform: translateY(7px) rotate(45deg);
+            }
+
+            .menu-toggle[aria-expanded="true"] span:nth-child(2) {
+                opacity: 0;
+            }
+
+            .menu-toggle[aria-expanded="true"] span:nth-child(3) {
+                transform: translateY(-7px) rotate(-45deg);
+            }
+
+            /* Dropdown panel */
+            .site-menu {
+                position: absolute;
+                left: 0;
+                right: 0;
+                top: 100%;
+                z-index: 60;
+                flex-direction: column;
+                align-items: stretch;
+                gap: 0;
+                padding: 6px 16px 20px;
+                background: #fff;
+                border-top: 1px solid rgba(105, 4, 4, .08);
+                border-radius: 0 0 22px 22px;
+                box-shadow: 0 28px 40px -14px rgba(0, 0, 0, .28);
+                max-height: calc(100vh - 64px);
+                max-height: calc(100dvh - 64px);
+                overflow-y: auto;
+                opacity: 0;
+                visibility: hidden;
+                transform: translateY(-10px);
+                transition: opacity .25s ease, transform .25s ease, visibility .25s;
+            }
+
+            .site-menu.open {
+                opacity: 1;
+                visibility: visible;
+                transform: none;
+            }
+
+            /* Links */
+            .site-menu .nav-link {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding: 15px 6px;
+                font-size: 16px;
+                border-bottom: 1px solid #f3e9e7;
+                opacity: 0;
+                transform: translateY(-6px);
+                transition: opacity .3s ease, transform .3s ease, color .2s;
+            }
+
+            .site-menu .nav-link::after {
+                content: '›';
+                font-size: 24px;
+                line-height: 1;
+                color: #690404;
+                opacity: .45;
+            }
+
+            .site-menu .nav-link.active {
+                color: #690404;
+            }
+
+            .site-menu .nav-link.active::after {
+                opacity: 1;
+            }
+
+            /* CTA */
+            .site-menu .menu-cta {
+                display: block;
+                margin-top: 18px;
+                padding: 14px;
+                text-align: center;
+                font-weight: 600;
+                font-size: 16px;
+                color: #fff;
+                text-decoration: none;
+                background: linear-gradient(90deg, #7f0a0a, #690404);
+                border-radius: 12px;
+                box-shadow: 0 10px 20px -8px rgba(105, 4, 4, .55);
+                opacity: 0;
+                transform: translateY(-6px);
+                transition: opacity .3s ease, transform .3s ease;
+            }
+
+            /* Staggered reveal */
+            .site-menu.open .nav-link,
+            .site-menu.open .menu-cta {
+                opacity: 1;
+                transform: none;
+                transition-delay: calc(var(--i, 0) * 30ms + 60ms);
+            }
+
+            /* Backdrop */
+            .nav-backdrop {
+                display: block;
+                position: fixed;
+                inset: 0;
+                z-index: 40;
+                background: rgba(20, 0, 0, .45);
+                backdrop-filter: blur(2px);
+                opacity: 0;
+                visibility: hidden;
+                transition: opacity .25s ease, visibility .25s;
+            }
+
+            .nav-backdrop.show {
+                opacity: 1;
+                visibility: visible;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+
+            .site-menu,
+            .site-menu *,
+            .menu-toggle span,
+            .nav-backdrop {
+                transition-duration: .01ms !important;
+                transition-delay: 0s !important;
+            }
         }
 
         /* section headings crimson */
@@ -353,10 +556,11 @@
 
     <!-- ===== NAVBAR ===== -->
     <nav class="bg-white shadow sticky top-0 z-50" style="position: sticky; top: 0; z-index: 50;">
-        <div class="w-full flex items-center justify-between px-4 md:px-6 lg:px-10 py-1">
+        <div class="relative w-full flex items-center justify-between px-4 md:px-6 lg:px-10 py-1">
             <img src="https://keralastudy.com/_next/image?url=%2Fassets%2FSvyasaUniversityAssetsAlt%2Fsvyasalogonew.webp&w=640&q=75"
                 alt="S-VYASA" class="h-10 md:h-14 w-auto" />
-            <div class="hidden md:flex items-center gap-7">
+
+            <div id="mobileNavMenu" class="site-menu">
                 <a href="#home" class="nav-link">Home</a>
                 <a href="#about" class="nav-link">About</a>
                 <a href="#courses" class="nav-link">Courses</a>
@@ -365,19 +569,64 @@
                 <a href="#why" class="nav-link">Why S-VYASA</a>
                 <a href="#faqs" class="nav-link">FAQs</a>
                 <a href="#contact" class="nav-link">Contact</a>
+                <a href="#apply" class="menu-cta">Apply Now</a>
             </div>
-            <button class="md:hidden text-gray-700">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-                </svg>
+
+            <button id="mobileNavToggle" type="button" class="menu-toggle" aria-label="Open navigation menu"
+                aria-expanded="false" aria-controls="mobileNavMenu">
+                <span></span><span></span><span></span>
             </button>
         </div>
     </nav>
+    <div id="navBackdrop" class="nav-backdrop"></div>
+
+    <script>
+        (() => {
+            const toggle = document.getElementById('mobileNavToggle');
+            const menu = document.getElementById('mobileNavMenu');
+            const backdrop = document.getElementById('navBackdrop');
+            if (!toggle || !menu || !backdrop) return;
+
+            const items = menu.querySelectorAll('.nav-link, .menu-cta');
+            items.forEach((el, i) => el.style.setProperty('--i', i));
+
+            const setOpen = (open) => {
+                menu.classList.toggle('open', open);
+                backdrop.classList.toggle('show', open);
+                document.documentElement.style.overflow = open ? 'hidden' : '';
+                toggle.setAttribute('aria-expanded', String(open));
+                toggle.setAttribute('aria-label', open ? 'Close navigation menu' : 'Open navigation menu');
+            };
+
+            toggle.addEventListener('click', () => setOpen(!menu.classList.contains('open')));
+            backdrop.addEventListener('click', () => setOpen(false));
+            items.forEach((el) => el.addEventListener('click', () => setOpen(false)));
+            document.addEventListener('keydown', (e) => { if (e.key === 'Escape') setOpen(false); });
+            window.addEventListener('resize', () => { if (window.innerWidth >= 768) setOpen(false); });
+
+            // Highlight current section
+            const links = [...menu.querySelectorAll('.nav-link')];
+            const targets = links.map((l) => document.querySelector(l.getAttribute('href')));
+            let ticking = false;
+            const markActive = () => {
+                const y = 120;
+                let current = 0;
+                targets.forEach((t, i) => { if (t && t.getBoundingClientRect().top <= y) current = i; });
+                links.forEach((l, i) => l.classList.toggle('active', i === current));
+                ticking = false;
+            };
+            window.addEventListener('scroll', () => {
+                if (!ticking) { ticking = true; requestAnimationFrame(markActive); }
+            }, { passive: true });
+            markActive();
+        })();
+    </script>
 
     <!-- ===== HERO ===== -->
     <section id="home" class="hero-section">
         <div class="hero-overlay"></div>
-        <div class="relative z-10 mx-auto w-full max-w-[1400px] px-4 sm:px-6 py-6 flex flex-col items-center justify-center gap-8 lg:flex-row lg:items-center lg:justify-between lg:gap-12">
+        <div
+            class="relative z-10 mx-auto w-full max-w-[1400px] px-4 sm:px-6 py-6 flex flex-col items-center justify-center gap-8 lg:flex-row lg:items-center lg:justify-between lg:gap-12">
             <!-- Left text -->
             <div class="flex-1 max-w-2xl text-start lg:text-left text-white">
                 <h1
@@ -1294,7 +1543,7 @@
     </style>
 
 
-    <div class="text-start text-md-center mb-5 px-3">
+    <div id="courses-intro" class="text-start text-md-center mb-5 px-3">
 
         <!-- Heading -->
         <h2 class="fw-bold display-5 mb-3" style="line-height:1.3;">
@@ -1322,6 +1571,10 @@
             padding: 30px 0;
             background: #faf8f7;
             overflow: hidden;
+        }
+
+        #courses .spec-list li strong {
+            font-weight: 700;
         }
 
         #courses .heading-block {
@@ -1811,22 +2064,29 @@
                     }
                 ];
 
-                function list(items) {
+                // Bolds everything after the first " with "
+                function emphasise(text) {
+                    var i = text.toLowerCase().indexOf(' with ');
+                    if (i === -1) return text;
+                    return text.slice(0, i + 6) + '<strong>' + text.slice(i + 6) + '</strong>';
+                }
+
+                function list(items, bold) {
                     return '<ul class="spec-list">' + items.map(function (i) {
-                        return '<li><span class="dot"></span>' + i + '</li>';
+                        return '<li><span class="dot"></span><span>' + (bold ? emphasise(i) : i) + '</span></li>';
                     }).join('') + '</ul>';
                 }
 
-                function section(label, items) {
-                    return '<div class="spec-section"><h4 class="spec-head">' + label + '</h4>' + list(items) + '</div>';
+                function section(label, items, bold) {
+                    return '<div class="spec-section"><h4 class="spec-head">' + label + '</h4>' + list(items, bold) + '</div>';
                 }
 
                 // Both lists open side by side (1px divider); one list -> single section; none -> nothing.
                 function specBlock(c) {
                     var d = (c.specs || c.geiep) ? { specs: c.specs || [], geiep: c.geiep || [] } : (specializationData[c.key] || { specs: [], geiep: [] });
                     var parts = [];
-                    if (d.specs.length) parts.push(section('Specialisations', d.specs));
-                    if (d.geiep.length) parts.push(section('Global Employability', d.geiep));
+                    if (d.specs.length) parts.push(section('Specialisations', d.specs, false));
+                    if (d.geiep.length) parts.push(section('Global Employability', d.geiep, true));
                     if (!parts.length) return '';
                     return '<div class="spec-sections' + (parts.length > 1 ? ' two' : '') + '">' + parts.join('') + '</div>';
                 }
@@ -2153,207 +2413,247 @@
         }
     </style>
 
-   <section class="py-5 position-relative overflow-hidden" aria-label="Partner companies">
-    <div class="container text-center">
-        <div class="logo-carousel">
-            <button class="logo-carousel-arrow logo-carousel-prev" type="button" aria-label="Previous logos">&#8249;</button>
+    <section class="py-5 position-relative overflow-hidden" aria-label="Partner companies">
+        <div class="container text-center">
+            <div class="logo-carousel">
+                <button class="logo-carousel-arrow logo-carousel-prev" type="button"
+                    aria-label="Previous logos">&#8249;</button>
 
-            <div class="logo-carousel-viewport">
-                <div class="logo-carousel-track" id="logoCarouselTrack">
-                    <div class="logo-carousel-slide"><div class="logo-card"><img src="LEARNING AND CERTIFICATIONS FROM PARTNERS/LCP_01.webp" alt="TCS"></div></div>
-                    <div class="logo-carousel-slide"><div class="logo-card"><img src="LEARNING AND CERTIFICATIONS FROM PARTNERS/LCP_02.webp" alt="HP"></div></div>
-                    <div class="logo-carousel-slide"><div class="logo-card"><img src="LEARNING AND CERTIFICATIONS FROM PARTNERS/LCP_03.webp" alt="Microsoft"></div></div>
-                    <div class="logo-carousel-slide"><div class="logo-card"><img src="LEARNING AND CERTIFICATIONS FROM PARTNERS/LCP_04.webp" alt="IBM"></div></div>
-                    <div class="logo-carousel-slide"><div class="logo-card"><img src="LEARNING AND CERTIFICATIONS FROM PARTNERS/LCP_05.webp" alt="TCS"></div></div>
-                    <div class="logo-carousel-slide"><div class="logo-card"><img src="LEARNING AND CERTIFICATIONS FROM PARTNERS/LCP_06.webp" alt="HP"></div></div>
-                    <div class="logo-carousel-slide"><div class="logo-card"><img src="LEARNING AND CERTIFICATIONS FROM PARTNERS/LCP_07.webp" alt="Microsoft"></div></div>
-                    <div class="logo-carousel-slide"><div class="logo-card"><img src="LEARNING AND CERTIFICATIONS FROM PARTNERS/LCP_08.webp" alt="IBM"></div></div>
-                    <div class="logo-carousel-slide"><div class="logo-card"><img src="LEARNING AND CERTIFICATIONS FROM PARTNERS/LCP_09.webp" alt="TCS"></div></div>
-                    <div class="logo-carousel-slide"><div class="logo-card"><img src="LEARNING AND CERTIFICATIONS FROM PARTNERS/LCP_10.webp" alt="HP"></div></div>
-                    <div class="logo-carousel-slide"><div class="logo-card"><img src="LEARNING AND CERTIFICATIONS FROM PARTNERS/LCP_11.webp" alt="Microsoft"></div></div>
+                <div class="logo-carousel-viewport">
+                    <div class="logo-carousel-track" id="logoCarouselTrack">
+                        <div class="logo-carousel-slide">
+                            <div class="logo-card"><img src="LEARNING AND CERTIFICATIONS FROM PARTNERS/LCP_01.webp"
+                                    alt="TCS"></div>
+                        </div>
+                        <div class="logo-carousel-slide">
+                            <div class="logo-card"><img src="LEARNING AND CERTIFICATIONS FROM PARTNERS/LCP_02.webp"
+                                    alt="HP"></div>
+                        </div>
+                        <div class="logo-carousel-slide">
+                            <div class="logo-card"><img src="LEARNING AND CERTIFICATIONS FROM PARTNERS/LCP_03.webp"
+                                    alt="Microsoft"></div>
+                        </div>
+                        <div class="logo-carousel-slide">
+                            <div class="logo-card"><img src="LEARNING AND CERTIFICATIONS FROM PARTNERS/LCP_04.webp"
+                                    alt="IBM"></div>
+                        </div>
+                        <div class="logo-carousel-slide">
+                            <div class="logo-card"><img src="LEARNING AND CERTIFICATIONS FROM PARTNERS/LCP_05.webp"
+                                    alt="TCS"></div>
+                        </div>
+                        <div class="logo-carousel-slide">
+                            <div class="logo-card"><img src="LEARNING AND CERTIFICATIONS FROM PARTNERS/LCP_06.webp"
+                                    alt="HP"></div>
+                        </div>
+                        <div class="logo-carousel-slide">
+                            <div class="logo-card"><img src="LEARNING AND CERTIFICATIONS FROM PARTNERS/LCP_07.webp"
+                                    alt="Microsoft"></div>
+                        </div>
+                        <div class="logo-carousel-slide">
+                            <div class="logo-card"><img src="LEARNING AND CERTIFICATIONS FROM PARTNERS/LCP_08.webp"
+                                    alt="IBM"></div>
+                        </div>
+                        <div class="logo-carousel-slide">
+                            <div class="logo-card"><img src="LEARNING AND CERTIFICATIONS FROM PARTNERS/LCP_09.webp"
+                                    alt="TCS"></div>
+                        </div>
+                        <div class="logo-carousel-slide">
+                            <div class="logo-card"><img src="LEARNING AND CERTIFICATIONS FROM PARTNERS/LCP_10.webp"
+                                    alt="HP"></div>
+                        </div>
+                        <div class="logo-carousel-slide">
+                            <div class="logo-card"><img src="LEARNING AND CERTIFICATIONS FROM PARTNERS/LCP_11.webp"
+                                    alt="Microsoft"></div>
+                        </div>
+                    </div>
                 </div>
+
+                <button class="logo-carousel-arrow logo-carousel-next" type="button"
+                    aria-label="Next logos">&#8250;</button>
             </div>
-
-            <button class="logo-carousel-arrow logo-carousel-next" type="button" aria-label="Next logos">&#8250;</button>
         </div>
-    </div>
-</section>
+    </section>
 
-<style>
-    .logo-carousel {
-        position: relative;
-        padding: 0 48px;
-    }
-
-    .logo-carousel-viewport {
-        overflow: hidden;
-    }
-
-    .logo-carousel-track {
-        display: flex;
-        will-change: transform;
-    }
-
-    .logo-carousel-slide {
-        flex: 0 0 16.6667%;
-        box-sizing: border-box;
-        padding: 0 12px;
-    }
-
-    .logo-carousel-arrow {
-        position: absolute;
-        top: 50%;
-        z-index: 2;
-        width: 40px;
-        height: 40px;
-        border: 0;
-        border-radius: 50%;
-        background: #690404;
-        color: #fff;
-        font-size: 30px;
-        line-height: 1;
-        cursor: pointer;
-        transform: translateY(-50%);
-        transition: background 0.2s ease;
-    }
-
-    .logo-carousel-arrow:hover {
-        background: #4d0303;
-    }
-
-    .logo-carousel-prev { left: 0; }
-    .logo-carousel-next { right: 0; }
-
-    .logo-card {
-        background: #ffffff;
-        padding: 5px 0;
-        border-radius: 16px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        height: 80px;
-        overflow: hidden;
-    }
-
-    .logo-card img {
-        max-width: 100%;
-        max-height: 75px;
-        object-fit: contain;
-    }
-
-    @media (max-width: 767.98px) {
-        .logo-carousel-slide {
-            flex-basis: 50%;
+    <style>
+        .logo-carousel {
+            position: relative;
+            padding: 0 48px;
         }
 
-        .logo-carousel {
-            padding: 0 38px;
+        .logo-carousel-viewport {
+            overflow: hidden;
+        }
+
+        .logo-carousel-track {
+            display: flex;
+            will-change: transform;
+        }
+
+        .logo-carousel-slide {
+            flex: 0 0 16.6667%;
+            box-sizing: border-box;
+            padding: 0 12px;
         }
 
         .logo-carousel-arrow {
-            width: 34px;
-            height: 34px;
-            font-size: 26px;
+            position: absolute;
+            top: 50%;
+            z-index: 2;
+            width: 40px;
+            height: 40px;
+            border: 0;
+            border-radius: 50%;
+            background: #690404;
+            color: #fff;
+            font-size: 30px;
+            line-height: 1;
+            cursor: pointer;
+            transform: translateY(-50%);
+            transition: background 0.2s ease;
         }
-    }
-</style>
 
-<script>
-    (() => {
-        const track = document.getElementById('logoCarouselTrack');
-        const carousel = track?.closest('.logo-carousel');
-        if (!track || !carousel) return;
+        .logo-carousel-arrow:hover {
+            background: #4d0303;
+        }
 
-        const realSlides = Array.from(track.children);
-        const total = realSlides.length;
-        if (!total) return;
+        .logo-carousel-prev {
+            left: 0;
+        }
 
-        const DURATION = 500;   // slide animation (ms)
-        const INTERVAL = 3000;  // autoplay delay (ms)
-        const mq = window.matchMedia('(max-width: 767.98px)');
+        .logo-carousel-next {
+            right: 0;
+        }
 
-        let perView = 6;
-        let index = 0;
-        let busy = false;
-        let settleTimer = null;
-        let autoplay = null;
+        .logo-card {
+            background: #ffffff;
+            padding: 5px 0;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 80px;
+            overflow: hidden;
+        }
 
-        const setPosition = (animate) => {
-            track.style.transition = animate ? `transform ${DURATION}ms ease` : 'none';
-            track.style.transform = `translateX(${-index * realSlides[0].offsetWidth}px)`;
-            if (!animate) void track.offsetWidth; // flush so the jump is instant
-        };
+        .logo-card img {
+            max-width: 100%;
+            max-height: 75px;
+            object-fit: contain;
+        }
 
-        // Clones at both ends make the loop seamless
-        const build = () => {
-            track.querySelectorAll('.is-clone').forEach((n) => n.remove());
-            perView = mq.matches ? 2 : 6;
-            const makeClone = (n) => {
-                const c = n.cloneNode(true);
-                c.classList.add('is-clone');
-                c.setAttribute('aria-hidden', 'true');
-                return c;
+        @media (max-width: 767.98px) {
+            .logo-carousel-slide {
+                flex-basis: 50%;
+            }
+
+            .logo-carousel {
+                padding: 0 38px;
+            }
+
+            .logo-carousel-arrow {
+                width: 34px;
+                height: 34px;
+                font-size: 26px;
+            }
+        }
+    </style>
+
+    <script>
+        (() => {
+            const track = document.getElementById('logoCarouselTrack');
+            const carousel = track?.closest('.logo-carousel');
+            if (!track || !carousel) return;
+
+            const realSlides = Array.from(track.children);
+            const total = realSlides.length;
+            if (!total) return;
+
+            const DURATION = 500;   // slide animation (ms)
+            const INTERVAL = 3000;  // autoplay delay (ms)
+            const mq = window.matchMedia('(max-width: 767.98px)');
+
+            let perView = 6;
+            let index = 0;
+            let busy = false;
+            let settleTimer = null;
+            let autoplay = null;
+
+            const setPosition = (animate) => {
+                track.style.transition = animate ? `transform ${DURATION}ms ease` : 'none';
+                track.style.transform = `translateX(${-index * realSlides[0].offsetWidth}px)`;
+                if (!animate) void track.offsetWidth; // flush so the jump is instant
             };
-            track.prepend(...realSlides.slice(-perView).map(makeClone));
-            track.append(...realSlides.slice(0, perView).map(makeClone));
-            index = perView;
-            busy = false;
-            setPosition(false);
-        };
 
-        const settle = () => {
-            clearTimeout(settleTimer);
-            if (index >= perView + total) index -= total;
-            else if (index < perView) index += total;
-            setPosition(false);
-            busy = false;
-        };
+            // Clones at both ends make the loop seamless
+            const build = () => {
+                track.querySelectorAll('.is-clone').forEach((n) => n.remove());
+                perView = mq.matches ? 2 : 6;
+                const makeClone = (n) => {
+                    const c = n.cloneNode(true);
+                    c.classList.add('is-clone');
+                    c.setAttribute('aria-hidden', 'true');
+                    return c;
+                };
+                track.prepend(...realSlides.slice(-perView).map(makeClone));
+                track.append(...realSlides.slice(0, perView).map(makeClone));
+                index = perView;
+                busy = false;
+                setPosition(false);
+            };
 
-        const move = (dir) => {
-            if (busy) return;
-            busy = true;
-            index += dir;
-            setPosition(true);
-            settleTimer = setTimeout(settle, DURATION + 100); // fallback if transitionend doesn't fire
-        };
+            const settle = () => {
+                clearTimeout(settleTimer);
+                if (index >= perView + total) index -= total;
+                else if (index < perView) index += total;
+                setPosition(false);
+                busy = false;
+            };
 
-        track.addEventListener('transitionend', (e) => {
-            if (e.target === track && e.propertyName === 'transform') settle();
-        });
+            const move = (dir) => {
+                if (busy) return;
+                busy = true;
+                index += dir;
+                setPosition(true);
+                settleTimer = setTimeout(settle, DURATION + 100); // fallback if transitionend doesn't fire
+            };
 
-        const startAutoplay = () => {
-            stopAutoplay();
-            autoplay = setInterval(() => move(1), INTERVAL);
-        };
-        const stopAutoplay = () => clearInterval(autoplay);
+            track.addEventListener('transitionend', (e) => {
+                if (e.target === track && e.propertyName === 'transform') settle();
+            });
 
-        carousel.querySelector('.logo-carousel-prev')?.addEventListener('click', () => move(-1));
-        carousel.querySelector('.logo-carousel-next')?.addEventListener('click', () => move(1));
+            const startAutoplay = () => {
+                stopAutoplay();
+                autoplay = setInterval(() => move(1), INTERVAL);
+            };
+            const stopAutoplay = () => clearInterval(autoplay);
 
-        carousel.addEventListener('mouseenter', stopAutoplay);
-        carousel.addEventListener('mouseleave', startAutoplay);
+            carousel.querySelector('.logo-carousel-prev')?.addEventListener('click', () => move(-1));
+            carousel.querySelector('.logo-carousel-next')?.addEventListener('click', () => move(1));
 
-        let touchStartX = 0;
-        carousel.addEventListener('touchstart', (e) => {
-            touchStartX = e.changedTouches[0].clientX;
-            stopAutoplay();
-        }, { passive: true });
-        carousel.addEventListener('touchend', (e) => {
-            const deltaX = e.changedTouches[0].clientX - touchStartX;
-            if (Math.abs(deltaX) > 40) move(deltaX < 0 ? 1 : -1);
+            carousel.addEventListener('mouseenter', stopAutoplay);
+            carousel.addEventListener('mouseleave', startAutoplay);
+
+            let touchStartX = 0;
+            carousel.addEventListener('touchstart', (e) => {
+                touchStartX = e.changedTouches[0].clientX;
+                stopAutoplay();
+            }, { passive: true });
+            carousel.addEventListener('touchend', (e) => {
+                const deltaX = e.changedTouches[0].clientX - touchStartX;
+                if (Math.abs(deltaX) > 40) move(deltaX < 0 ? 1 : -1);
+                startAutoplay();
+            }, { passive: true });
+
+            let resizeTimer;
+            window.addEventListener('resize', () => {
+                clearTimeout(resizeTimer);
+                resizeTimer = setTimeout(build, 150);
+            });
+
+            build();
             startAutoplay();
-        }, { passive: true });
-
-        let resizeTimer;
-        window.addEventListener('resize', () => {
-            clearTimeout(resizeTimer);
-            resizeTimer = setTimeout(build, 150);
-        });
-
-        build();
-        startAutoplay();
-    })();
-</script>
+        })();
+    </script>
 
     <!-- ===== PLACEMENTS SECTION ===== -->
     <section id="placements"
@@ -2559,7 +2859,7 @@
                 </button>
             </div>
 
-            
+
 
             <!-- Brochure CTA Banner -->
             <div class="placements-brochure-banner placements-fade-in placements-stagger-3">
@@ -2593,7 +2893,7 @@
             const track = document.getElementById('placementsCarouselTrack');
             const prevBtn = document.getElementById('placementsPrevBtn');
             const nextBtn = document.getElementById('placementsNextBtn');
-            const dotsContainer = document.getElementById('placementsCarouselDots');
+            const dotsContainer = document.getElementById('placementsCarouselDots') || document.createElement('div');
 
             const items = track.children;
             const totalItems = items.length;
@@ -2771,11 +3071,13 @@
     <section id="infrastructure" class="py-6 mx-3 rounded-5 mt-4"
         style="background-image:linear-gradient(rgb(255, 255, 255),white,rgb(213, 213, 213));">
         <div class="max-w-7xl mx-auto">
-            <h2 class="text-[28px] md:text-[40px] font-bold text-left md:text-center mb-3 text-[#000]">S-VYASA University,
+            <h2 class="text-[28px] md:text-[40px] font-bold text-left md:text-center mb-3 text-[#000]">S-VYASA
+                University,
                 Trivandrum,
                 <span class="text-[#690404]">Infrastructure</span>
             </h2>
-            <p class="text-left md:text-center text-dark text-lg max-w-6xl mx-auto mb-2">S-VYASA University offers modern
+            <p class="text-left md:text-center text-dark text-lg max-w-6xl mx-auto mb-2">S-VYASA University offers
+                modern
                 infrastructure with spacious, air-conditioned classrooms equipped with digital aids, advanced labs, and
                 specialised research facilities. The campus provides sports amenities for games like cricket,
                 basketball, and chess to promote physical fitness. Additional facilities include seminar halls, a large
@@ -3067,7 +3369,8 @@
                         FAQ
                     </p>
 
-                    <h2 class="text-[40px] sm:text-6xl md:text-7xl lg:text-[96px] font-bold text-gray-900 leading-[1.05] sm:leading-tight mt-3 sm:mt-4">
+                    <h2
+                        class="text-[40px] sm:text-6xl md:text-7xl lg:text-[96px] font-bold text-gray-900 leading-[1.05] sm:leading-tight mt-3 sm:mt-4">
                         Frequently<br>
                         Asked <span class="text-[#690404]">Questions</span>
                     </h2>
@@ -3111,7 +3414,8 @@
 
                         <p class="mt-4 text-gray-900 text-md leading-relaxed">
                             The S-VYASA University Panavoor fee structure varies depending on the course, specialisation
-                            and programme level. Students can check the latest undergraduate and postgraduate fee details
+                            and programme level. Students can check the latest undergraduate and postgraduate fee
+                            details
                             through the university's official admissions website.
                         </p>
                     </details>
@@ -3149,8 +3453,10 @@
                         </summary>
 
                         <p class="mt-4 text-gray-900 text-md leading-relaxed">
-                            Yes, S-VYASA Deemed to be University Thiruvananthapuram provides placement assistance through
-                            its dedicated training and placement cell. Students receive career guidance, industry exposure,
+                            Yes, S-VYASA Deemed to be University Thiruvananthapuram provides placement assistance
+                            through
+                            its dedicated training and placement cell. Students receive career guidance, industry
+                            exposure,
                             internship opportunities and placement support across various sectors, depending on their
                             programme.
                         </p>
@@ -3181,7 +3487,7 @@
         </div>
     </section>
 
-   
+
 
     <!-- ===== APPLY CTA ===== -->
     <section class="apply-cta-section mt-5">
